@@ -1,0 +1,10 @@
+<h1>Menu</h1>
+<table>
+  <% @items.each_slice(4) do |items| %>
+    <tr>
+      <% items.each do |item| %>
+        <td><%= item.title %>: $<%= item.price %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
