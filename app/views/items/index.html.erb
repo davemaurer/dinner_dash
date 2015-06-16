@@ -1,10 +1,31 @@
-<h1>Menu</h1>
-<table>
-  <% @items.each_slice(4) do |items| %>
-    <tr>
-      <% items.each do |item| %>
-        <td><%= item.title %>: $<%= item.price %></td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
+<div class="row">
+  <div class="large-12 large-centered columns">
+    <h1 class="centered-text">Mythical Eatures</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns centered-text">
+    <h3 class="large-12 columns">Choose your food quest: 
+    <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">Dropdown Button</button><br>
+    <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
+      <li><a href="#">This is a link</a></li>
+      <li><a href="#">This is another</a></li>
+      <li><a href="#">Yet another</a></li>
+    </ul>
+    </h3>
+  </div>
+</div>
+
+<% @items.each_slice(4) do |slice| %>
+  <div class="row">
+    <% slice.each do |item| %>
+      <div class="large-3 columns">
+        <p>
+          <%= item.title %>: $<%= item.price %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+

@@ -2,25 +2,28 @@ require 'rails_helper'
 
 RSpec.feature "the unauthenticated user view", type: :feature do
 
-  scenario "will see an items index page" do
-    visit items_path
-    within "h1" do
-      expect(page).to have_content("Menu")
+feature "an unauthenticated user" do
+  context "will see an item" do
+
+    scenario "will see an items index page" do
+      visit items_path
+      within "h1" do
+        expect(page).to have_content("Menu")
+      end
     end
-  end
 
-  scenario "the index page has all items listed" do
-    Item.create(title: "Unicorn Roll",
-                description: "Gooooood",
-                price: 8,
-                status: "active")
+    scenario "will see that the index page has all items listed" do
+      Item.create(title: "Unicorn Roll",
+        description: "Gooooood",
+        price: 8,
+        status: "active")
 
-    visit items_path
+      visit items_path
 
-    within "table" do
-      expect(page).to have_content("Unicorn Roll")
+      within "table" do
+        expect(page).to have_content("Unicorn Roll")
+      end
     end
-  end
 
   scenario "the index page displays items in rows of four" do
     Item.create(title: "Unicorn Roll",
@@ -51,6 +54,6 @@ RSpec.feature "the unauthenticated user view", type: :feature do
         expect(page).to have_content(item.title)
       end
     end
-
   end
+  
 end
