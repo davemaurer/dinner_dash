@@ -10,6 +10,13 @@ class Cart
     contents[item_id.to_s] += 1
   end
   
+  def item_quantities
+    contents.inject({}) do |memo, (item_id, qty)| 
+      memo[Item.find(item_id)] = qty
+      memo
+    end
+  end
+  
   def count_all
     contents.values.sum
   end
