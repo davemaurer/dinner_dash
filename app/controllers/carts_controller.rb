@@ -11,6 +11,14 @@ class CartsController < ApplicationController
   def show
   end
   
+  def update
+    item = Item.find(params[:item_id])
+    @cart.add_item(item.id)
+    session[:cart] = @cart.contents
+    flash[:notice] = "You have added 1 #{item.title} to your backpack"
+    redirect_to cart_path
+  end
+  
   def destroy
     item = Item.find(params[:item_id])
     @cart.remove_item(item.id)
