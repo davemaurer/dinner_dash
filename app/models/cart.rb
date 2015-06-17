@@ -1,5 +1,4 @@
 class Cart
-  include ActiveModel::Conversion
   attr_reader :contents
   
   def initialize(contents)
