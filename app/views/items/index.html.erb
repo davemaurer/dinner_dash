@@ -17,17 +17,15 @@
   </div>
 </div>
 
-<div class="items">
-  <% @items.each_slice(4) do |slice| %>
-    <div class="row">
-      <% slice.each do |item| %>
-        <div class="large-3 columns">
-          <p>
-            <%= item.title %>: $<%= item.price %><br>
-            <%= button_to "Add To Cart", '#', class: "button round tiny" %>
-          </p>
-        </div>
-      <% end %>
-    </div>
+<% @items.each_slice(4) do |slice| %>
+  <div class="row items">
+    <% slice.each do |item| %>
+      <div class="large-3 columns">
+        <p>
+          <%= item.title %>: $<%= item.price %>
+          <%= button_to "Add To Cart", cart_path(item_id: item.id), class: "round button tiny" %>
+        </p>
+      </div>
+    <% end %>
   </div>
 <% end %>
