@@ -7,11 +7,11 @@
 <div class="row">
   <div class="large-12 columns centered-text">
     <h3 class="large-12 columns filter">Choose your food quest:
-      <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">Dropdown Button</button><br>
+      <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">Onward!</button><br>
       <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
-        <li><a href="#">This is a link</a></li>
-        <li><a href="#">This is another</a></li>
-        <li><a href="#">Yet another</a></li>
+        <% @categories.each do |category|%>
+          <li><%= link_to category.name, items_path(category_id: category), method: :post %></li>
+        <% end %>
       </ul>
     </h3>
   </div>
