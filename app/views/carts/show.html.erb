@@ -1,12 +1,16 @@
 
 <div class="row">
   <div class="large-12 columns centered-text">
+    <br>
   <h1>Shopping Cart</h1>
+    <br>
     
-    <%= button_to "Checkout", "#", class: "round button tiny" %>
+    <%= button_to "Checkout", "#", class: "round button small" %><br><br>
 
-    <% @cart.contents.each do |item| %>
-      <%= item[0] %>: <%= item[1] %>
+    <% @cart.item_quantities.each do |k, v| %>
+      <%= k.title %> ($<%= k.price %>) x <%= v %>..........$<%= k.price*v %><br><br>
+      <%= button_to "-1", cart_path(item_id: k.id), method: :delete, class: "button round tiny" %>
+      <%= button_to "+1", cart_path(item_id: k.id), method: :put, class: "button round tiny" %><br><br>
     <% end %>
   </div>
 </div>
