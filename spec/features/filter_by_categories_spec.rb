@@ -50,6 +50,16 @@ RSpec.feature "filtering items by category", type: :feature do
       end
     end
 
+    scenario "selecting a category updates the dropdown button display" do
+      visit items_path
+
+      click_button "Onward!"
+      click_link "Pasta"
+
+      expect(page).to_not have_content("Onward!")
+      expect(page).to have_content("Pasta")
+    end
+
   end
 
 end
