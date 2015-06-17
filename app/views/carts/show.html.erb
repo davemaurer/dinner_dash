@@ -7,6 +7,7 @@
 
     <% @cart.item_quantities.each do |k, v| %>
       <%= k.title %> ($<%= k.price %>) x <%= v %>..........$<%= k.price*v %><br>
+      <%= button_to "Delete", cart_path, method: :delete, class: "button round tiny" %>
     <% end %>
   </div>
 </div>

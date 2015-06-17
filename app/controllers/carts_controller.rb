@@ -9,6 +9,11 @@ class CartsController < ApplicationController
   end
   
   def show
-    
+  end
+  
+  def destroy
+    item = Item.find(params[:item_id])
+    item.destroy
+    flash.notice = "You have removed #{item.title} from your backpack."
   end
 end
