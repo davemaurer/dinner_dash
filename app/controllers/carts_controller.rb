@@ -13,7 +13,9 @@ class CartsController < ApplicationController
   
   def destroy
     item = Item.find(params[:item_id])
-    item.destroy
-    flash.notice = "You have removed #{item.title} from your backpack."
+    @cart.remove_item(item.id)
+    session[:cart] = @cart.contents
+    flash[:notice] = "You have removed 1 #{item.title} from your backpack"
+    redirect_to cart_path
   end
 end
