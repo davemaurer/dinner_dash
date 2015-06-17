@@ -5,8 +5,8 @@
     
     <%= button_to "Checkout", "#", class: "round button tiny" %>
 
-    <% @cart.contents.each do |item| %>
-      <%= item[0] %>: <%= item[1] %>
+    <% @cart.item_quantities.each do |k, v| %>
+      <%= k.title %> ($<%= k.price %>) x <%= v %>..........$<%= k.price*v %><br>
     <% end %>
   </div>
 </div>
