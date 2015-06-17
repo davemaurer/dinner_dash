@@ -7,22 +7,27 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Item.create(title: "Unicorn Pie",
-  description: "Gooooood",
-  price: 8,
-  status: "active")
+            description: "Gooooood",
+            price: 8,
+            status: "active")
 Item.create(title: "Medusa Hair Pasta",
-  description: "Gooooood",
-  price: 8,
-  status: "active")
+            description: "Gooooood",
+            price: 8,
+            status: "active")
 Item.create(title: "Pixie Bread Stix",
-  description: "Gooooood",
-  price: 8,
-  status: "active")
+            description: "Gooooood",
+            price: 8,
+            status: "active")
 Item.create(title: "Phoenix Spicy Curry",
-  description: "Gooooood",
-  price: 8,
-  status: "active")
+            description: "Gooooood",
+            price: 8,
+            status: "active")
 Item.create(title: "Titan Burger",
-  description: "Gooooood",
-  price: 8,
-  status: "active")
+            description: "Gooooood",
+            price: 8,
+            status: "active")
+
+
+Category.create(name: "pasta")
+Category.create(name: "burgers")
+Category.create(name: "appetizer")
