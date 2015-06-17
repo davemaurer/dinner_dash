@@ -1,14 +1,12 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "the unauthenticated user view", type: :feature do
-
-feature "an unauthenticated user" do
 
   context "will see an item" do
     scenario "will see an items index page" do
       visit items_path
       within "h1" do
-        expect(page).to have_content("Menu")
+        expect(page).to have_content("Mythical Eatures")
       end
     end
   end
