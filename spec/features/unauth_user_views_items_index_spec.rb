@@ -1,21 +1,14 @@
 require "rails_helper"
 
 feature "an unauthenticated user" do
-    
-<<<<<<< HEAD
+  
   scenario "will see an items index page" do
     visit items_path
     within "h1" do
       expect(page).to have_content("Mythical Eatures")
-=======
-    scenario "will see an items index page" do
-      visit items_path
-      within "h1" do
-        expect(page).to have_content("Mythical Eatures")
-      end
->>>>>>> master
     end
   end
+  
 
   scenario "will see that the index page has all items listed" do
     Item.create(title: "Unicorn Roll",
@@ -25,14 +18,8 @@ feature "an unauthenticated user" do
 
     visit items_path
 
-<<<<<<< HEAD
     within ".large-3" do
       expect(page).to have_content("Unicorn Roll")
-=======
-      within ".items" do
-        expect(page).to have_content("Unicorn Roll")
-      end
->>>>>>> master
     end
   end
 
@@ -59,11 +46,10 @@ feature "an unauthenticated user" do
       status: "active")
 
     visit items_path
-      # within ".items2" do
-        Item.all.each do |item|
-          expect(page).to have_content(item.title)
-        # end
-      end
+    # within ".items2" do
+    Item.all.each do |item|
+      expect(page).to have_content(item.title)
+      # end
     end
   end
 end
