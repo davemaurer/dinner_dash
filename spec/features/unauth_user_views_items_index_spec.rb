@@ -6,7 +6,7 @@ feature "an unauthenticated user" do
     scenario "will see an items index page" do
       visit items_path
       within "h1" do
-        expect(page).to have_content("Menu")
+        expect(page).to have_content("Mythical Eatures")
       end
     end
 
@@ -18,7 +18,7 @@ feature "an unauthenticated user" do
 
       visit items_path
 
-      within "table" do
+      within ".items" do
         expect(page).to have_content("Unicorn Roll")
       end
     end
@@ -47,10 +47,10 @@ feature "an unauthenticated user" do
 
       visit items_path
 
-      within "table" do
+      # within ".items2" do
         Item.all.each do |item|
           expect(page).to have_content(item.title)
-        end
+        # end
       end
     end
   end
