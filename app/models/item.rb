@@ -4,6 +4,6 @@ class Item < ActiveRecord::Base
   validates :price, presence: true
   validates :status, presence: true
 
-  has_many :item_categories
+  has_many :item_categories, dependent: :destroy
   has_many :categories, through: :item_categories
 end
