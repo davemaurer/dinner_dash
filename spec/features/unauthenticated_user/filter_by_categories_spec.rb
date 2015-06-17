@@ -59,7 +59,6 @@ RSpec.feature "filtering items by category", type: :feature do
       expect(page).to_not have_content("Onward!")
       expect(page).to have_content("Pasta")
     end
-
   end
 
 end
