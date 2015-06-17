@@ -11,7 +11,9 @@ feature "an unauthenticated user" do
   
   scenario "can view their cart" do
     visit items_path
-    click_link "Cart"
+    within ".right" do
+      find(:link).click
+    end
     
     expect(page).to have_content("Shopping Cart")
   end
@@ -21,13 +23,15 @@ feature "an unauthenticated user" do
     first(:button, "Add To Cart").click
     
     expect(current_path).to eq(items_path)
-    expect(page).to have_content("Cart (1)")
+    expect(page).to have_content("(1)")
   end
   
   scenario "can view the item on their cart page" do
     visit items_path
     first(:button, "Add To Cart").click
-    click_link "Cart (1)"
+    within ".right" do
+      find(:link).click
+    end
     
     expect(current_path).to eq(cart_path)
     expect(page).to have_content("Unicorn Roll")
@@ -39,14 +43,16 @@ feature "an unauthenticated user" do
     first(:button, "Add To Cart").click
     
     expect(current_path).to eq(items_path)
-    expect(page).to have_content("Cart (2)")
+    expect(page).to have_content("(2)")
   end
   
   scenario "the line-item price of the item will change based on the quantity" do
     visit items_path
     first(:button, "Add To Cart").click
     first(:button, "Add To Cart").click
-    click_link "Cart (2)"
+    within ".right" do
+      find(:link).click
+      end
     
     expect(current_path).to eq(cart_path)
     expect(page).to have_content("$16")
