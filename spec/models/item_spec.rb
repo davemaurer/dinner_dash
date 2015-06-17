@@ -23,36 +23,36 @@ RSpec.describe Item, type: :model do
   end
 
   it "is invalid without a title" do
-    item = Item.new(title: nil, 
-                    description: "good", 
-                    price: 5, 
+    item = Item.new(title: nil,
+                    description: "good",
+                    price: 5,
                     status: "active")
 
     expect(item).to_not be_valid
   end
 
   it "is invalid without a description" do
-    item = Item.new(title: "food", 
-                    description: nil, 
-                    price: 5, 
+    item = Item.new(title: "food",
+                    description: nil,
+                    price: 5,
                     status: "active")
 
     expect(item).to_not be_valid
   end
 
   it "is invalid without a price" do
-    item = Item.new(title: "food", 
-                    description: "good", 
-                    price: nil, 
+    item = Item.new(title: "food",
+                    description: "good",
+                    price: nil,
                     status: "active")
 
     expect(item).to_not be_valid
   end
 
   it "is invalid without a status" do
-    item = Item.new(title: "food", 
-                    description: "good", 
-                    price: 5, 
+    item = Item.new(title: "food",
+                    description: "good",
+                    price: 5,
                     status: nil)
 
     expect(item).to_not be_valid
@@ -64,5 +64,11 @@ RSpec.describe Item, type: :model do
 
     expect(item2).to_not be_valid
     expect(Item.count).to eq(1)
+  end
+
+  it "has many categories" do
+    item = Item.create(valid_attributes)
+
+    expect(item).to respond_to(:categories)
   end
 end

@@ -18,4 +18,10 @@ RSpec.describe Category, type: :model do
 
     expect(category.name).to eq("Appetizer")
   end
+
+  it "has many items" do
+    category = Category.create(name: "Pasta")
+
+    expect(category).to respond_to(:items)
+  end
 end
