@@ -9,6 +9,4 @@ RSpec.feature "the unauthenticated user view", type: :feature do
     end
   end
 
-  
-
 end
