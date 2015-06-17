@@ -1,0 +1,9 @@
+<h1>Shopping Cart</h1>
+
+<% @cart.contents.each do |item| %>
+  <div class="row">
+    <div class="large-3 columns">
+      <%= item[0] %>: <%= item[1] %>
+    </div>
+  <% end %>
+</div>
