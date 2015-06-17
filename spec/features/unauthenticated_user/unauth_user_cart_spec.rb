@@ -57,4 +57,34 @@ feature "an unauthenticated user" do
     expect(current_path).to eq(cart_path)
     expect(page).to have_content("$16")
   end
+
+  scenario "can see a delete button next to each item in his/her cart" do
+    visit items_path
+    first(:button, "Add To Cart").click
+    within ".right" do
+      find(:link).click
+    end
+
+    expect(current_path).to eq(cart_path)
+    expect(page).to have_content("Unicorn Roll")
+    expect(page).to have_button("Delete")
+  end
+
+  scenario "can see a delete button next to each item in his/her cart" do
+    visit items_path
+    first(:button, "Add To Cart").click
+    within ".right" do
+      find(:link).click
+    end
+
+    expect(current_path).to eq(cart_path)
+    expect(page).to have_content("Unicorn Roll")
+    expect(page).to have_button("Delete")
+    
+    click_button("Delete")
+    
+    expect(current_path).to eq(cart_path)
+    expect(page).not_to have_content("Unicorn Roll")
+    expect(page).not_to have_button("Delete")
+  end
 end
