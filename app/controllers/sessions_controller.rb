@@ -7,9 +7,15 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       redirect_to items_path
+      flash[:notice] = "Welcome, #{user.full_name}"
     else
-      flash.now[:errors] = "Invalid login."
+      flash[:notice] = "Invalid login."
       render :new
     end
+  end
+
+  def destroy
+    session.clear
+    redirect_to items_path
   end
 end
