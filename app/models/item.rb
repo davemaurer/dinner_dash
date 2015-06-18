@@ -4,8 +4,9 @@ class Item < ActiveRecord::Base
 
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true
-  validates :price, presence: true, numericality: [ greater_than: 0]
+  validates :price, presence: true, numericality: { greater_than: 0 }
   validates :status, presence: true
+
   # validates :categories, presence: true
   # validate :has_category
 
@@ -14,4 +15,5 @@ class Item < ActiveRecord::Base
   #     errors.add(:categories, "item must have at least one category")
   #   end
   # end
+
 end

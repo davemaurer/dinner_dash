@@ -72,8 +72,9 @@ RSpec.describe Item, type: :model do
                       description: "good",
                       price: 9.50,
                       status: "active")
+      price = ActionController::Base.helpers.number_to_currency(item.price, unit: "$")
 
-      expect(item.price).to eq(9.50)
+      expect(price).to eq("$9.50")
     end
 
     it "has a price that is greater than zero" do
