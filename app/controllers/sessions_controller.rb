@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(user_name: params[:session][:user_name])
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      redirect_to items_path
+      redirect_to cart_path
       flash[:notice] = "Welcome, #{user.full_name}"
     else
       flash[:notice] = "Invalid login."
