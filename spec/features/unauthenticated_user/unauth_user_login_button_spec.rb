@@ -5,7 +5,7 @@ feature "an unauthenticated user" do
     visit items_path
     click_link "Login"
 
-    expect(page).to have_content("password")
+    expect(page).to have_content("Password")
   end
 end
 
