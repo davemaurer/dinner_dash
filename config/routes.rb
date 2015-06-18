@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   post "/items", to: "items#index"
 
   resource :cart
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
 end
