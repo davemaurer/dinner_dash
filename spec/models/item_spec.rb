@@ -102,6 +102,12 @@ RSpec.describe Item, type: :model do
       expect(item2).to_not be_valid
       expect(Item.count).to eq(1)
     end
+
+    it "has a stand-in photo if one is not provided" do
+      item = Item.create(valid_attributes)
+
+      expect(item.image.url).to eq("/Fat_unicorn.jpg")
+    end
   end
 
   context "item relationships" do
