@@ -4,8 +4,12 @@
     <br>
   <h1>Shopping Cart</h1>
     <br>
-    
-    <%= button_to "Checkout", "#", class: "round button small" %><br><br>
+
+    <% if current_user %>
+      <%= button_to "Checkout", "#", class: "round button small" %><br><br>
+    <% else %>
+      <%= button_to "Checkout", login_path, class: "round button small", method: :get %><br><br>
+    <% end %>
 
     <% @cart.item_quantities.each do |k, v| %>
       <%= link_to "#{k.title}", k %> ($<%= k.price %>) x <%= v %>..........$<%= k.price*v %><br><br>
