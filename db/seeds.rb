@@ -27,7 +27,6 @@ titan_burger      = Item.create(title: "Titan Burger",
                                 price: 8,
                                 status: "active")
 
-
 pasta_cat     = Category.create(name: "pasta")
 burgers_cat   = Category.create(name: "burgers")
 appetizer_cat = Category.create(name: "appetizer")

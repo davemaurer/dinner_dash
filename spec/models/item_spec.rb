@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.describe Item, type: :model do
-
   let(:valid_attributes) {
     { title: "food",
       description: "good",
@@ -32,9 +31,27 @@ RSpec.describe Item, type: :model do
       expect(item).to_not be_valid
     end
 
+    it "has a title that is not an empty string" do
+      item = Item.new(title: "",
+                      description: "good",
+                      price: 5,
+                      status: "active")
+
+      expect(item).to_not be_valid
+    end
+
     it "is invalid without a description" do
       item = Item.new(title: "food",
                       description: nil,
+                      price: 5,
+                      status: "active")
+
+      expect(item).to_not be_valid
+    end
+
+    it "has a description that is not an empty string" do
+      item = Item.new(title: "title!",
+                      description: "",
                       price: 5,
                       status: "active")
 
@@ -45,6 +62,25 @@ RSpec.describe Item, type: :model do
       item = Item.new(title: "food",
                       description: "good",
                       price: nil,
+                      status: "active")
+
+      expect(item).to_not be_valid
+    end
+
+    it "has a price that is a decimal numeric value" do
+      item = Item.new(title: "food",
+                      description: "good",
+                      price: 9.50,
+                      status: "active")
+      price = ActionController::Base.helpers.number_to_currency(item.price, unit: "$")
+
+      expect(price).to eq("$9.50")
+    end
+
+    it "has a price that is greater than zero" do
+      item = Item.new(title: "food",
+                      description: "good",
+                      price: 0.00,
                       status: "active")
 
       expect(item).to_not be_valid
@@ -86,6 +122,18 @@ RSpec.describe Item, type: :model do
 
       cat_from_db = Category.find(category.id)
       expect(cat_from_db.name).to eq(category.name)
+    end
+
+    xit "has at least one category" do
+      item = Item.new(valid_attributes)
+
+      expect(item).to_not be_valid
+
+      category = Category.create(name: "new cat")
+      item2 = category.items.create(valid_attributes)
+
+      expect(item2).to be_valid
+      # expect(item.categories.count).to be >= 1
     end
   end
 end
