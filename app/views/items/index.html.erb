@@ -22,7 +22,7 @@
     <% slice.each do |item| %>
       <div class="large-3 columns">
         <p>
-          <%= item.title %>: $<%= item.price %>
+          <%= link_to "#{ item.title}", item %>: $<%= item.price %>
           <%= button_to "Add To Cart", cart_path(item_id: item.id), class: "round button tiny" %>
         </p>
       </div>

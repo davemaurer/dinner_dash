@@ -8,9 +8,9 @@
     <%= button_to "Checkout", "#", class: "round button small" %><br><br>
 
     <% @cart.item_quantities.each do |k, v| %>
-      <%= k.title %> ($<%= k.price %>) x <%= v %>..........$<%= k.price*v %><br><br>
-      <%= button_to "-1", cart_path(item_id: k.id), method: :delete, class: "button round tiny" %>
-      <%= button_to "+1", cart_path(item_id: k.id), method: :put, class: "button round tiny" %><br><br>
+      <%= link_to "#{k.title}", k %> ($<%= k.price %>) x <%= v %>..........$<%= k.price*v %><br><br>
+      <%= button_to "-1", cart_path(item_id: k.id), method: :delete, class: "button round tiny quantity" %>
+      <%= button_to "+1", cart_path(item_id: k.id), method: :put, class: "button round tiny quantity" %><br><br>
     <% end %>
   </div>
 </div>
