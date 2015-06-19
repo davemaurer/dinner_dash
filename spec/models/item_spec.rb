@@ -1,19 +1,20 @@
 require "rails_helper"
 
 RSpec.describe Item, type: :model do
-  let(:valid_attributes) {
-    { title: "food",
-      description: "good",
-      price: 5,
-      status: "active"}
-    }
+  let(:category) { Category.create(name: "new cat") }
 
-  let(:invalid_attributes) {
-    { title: nil,
-      description: nil,
-      price: nil,
-      status: nil}
-    }
+  let(:valid_attributes) { { title: "food",
+                             description: "good",
+                             price: 5,
+                             status: "active",
+                             categories: [category] } }
+
+  let(:invalid_attributes) { { title: nil,
+                               description: nil,
+                               price: nil,
+                               status: nil,
+                               categories: nil } }
+
 
   context "setting item attributes" do
     it "is valid" do
@@ -131,13 +132,11 @@ RSpec.describe Item, type: :model do
     end
 
     it "has at least one category" do
+      valid_attributes[:categories] = []
       item = Item.new(valid_attributes)
-
       expect(item).to_not be_valid
-
-      category = Category.create(name: "new cat")
+      
       item2 = Item.create(valid_attributes.merge(categories: [category]))
-
       expect(item2).to be_valid
     end
   end
