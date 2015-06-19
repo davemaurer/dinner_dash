@@ -1,0 +1,12 @@
+Given a Cart with items -> quantity # hashh
+The Orders controller # create action # OrdersController#create
+  Create the initial order   #create
+    For each item in the cart #each 
+      Create a new reference  in the Orders <-> Items join table. # join table create.
+   
+You have a hash
+You create the Order
+Then you assign the Items referenced within the hash to the order.
+
+Orders, Ordrs_joins table
+OrderItem.create(order, item)

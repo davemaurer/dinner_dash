@@ -29,4 +29,8 @@ class Cart
   def count_of(item_id)
     contents[item_id.to_s]
   end
+  
+  def reset
+    @contents = {}
+  end
 end
