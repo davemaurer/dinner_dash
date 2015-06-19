@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  resources :items, only: [:index]
-  post "/items", to: "items#index"
+  resources :items, only: [:index, :show]
+  resources :orders, only: [:create, :show]
+  resource :cart, only: [:create, :show, :update, :destroy]
+  post '/items', to: 'items#index'
 
-  resource :cart
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
+  root to: "items#index"
 end

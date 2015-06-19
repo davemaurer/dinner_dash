@@ -1,7 +1,6 @@
 require "rails_helper"
 
 feature "an unauthenticated user" do
-
   before(:each) do
     category = Category.create(name: "sushi")
     @item = Item.create(title: "Unicorn Roll",
