@@ -31,6 +31,6 @@ class Cart
   end
   
   def reset
-    @contents = {}
+    contents.clear
   end
 end
