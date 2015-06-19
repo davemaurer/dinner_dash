@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resource :cart
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+
+  resource :admin
   
   root to: "items#index"
 

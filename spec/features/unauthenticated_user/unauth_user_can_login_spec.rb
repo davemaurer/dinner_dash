@@ -2,11 +2,11 @@ require "rails_helper"
 
 RSpec.feature "the unauthenticated user", type: :feature do
   let(:valid_attributes) {
-    {full_name: "Stan The Man",
+    { full_name: "Stan The Man",
       user_name: "Theman",
       password: "password",
       role: 0,
-      email: "stan@stan.com"}
+      email: "stan@stan.com" }
   }
 
   scenario "can login" do
