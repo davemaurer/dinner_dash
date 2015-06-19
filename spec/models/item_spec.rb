@@ -1,30 +1,39 @@
 require "rails_helper"
 
 RSpec.describe Item, type: :model do
+  let(:category) { Category.create(name: "new cat") }
 
-  let(:valid_attributes) {
-    { title: "food",
-      description: "good",
-      price: 5,
-      status: "active"}
-    }
+  let(:valid_attributes) { { title: "food",
+                             description: "good",
+                             price: 5,
+                             status: "active",
+                             categories: [category] } }
 
-  let(:invalid_attributes) {
-    { title: nil,
-      description: nil,
-      price: nil,
-      status: nil}
-    }
+  let(:invalid_attributes) { { title: nil,
+                               description: nil,
+                               price: nil,
+                               status: nil,
+                               categories: nil } }
+
 
   context "setting item attributes" do
     it "is valid" do
-      item = Item.new(valid_attributes)
+      item = Item.create(valid_attributes)
 
       expect(item).to be_valid
     end
 
     it "is invalid without a title" do
       item = Item.new(title: nil,
+                      description: "good",
+                      price: 5,
+                      status: "active")
+
+      expect(item).to_not be_valid
+    end
+
+    it "has a title that is not an empty string" do
+      item = Item.new(title: "",
                       description: "good",
                       price: 5,
                       status: "active")
@@ -41,10 +50,38 @@ RSpec.describe Item, type: :model do
       expect(item).to_not be_valid
     end
 
+    it "has a description that is not an empty string" do
+      item = Item.new(title: "title!",
+                      description: "",
+                      price: 5,
+                      status: "active")
+
+      expect(item).to_not be_valid
+    end
+
     it "is invalid without a price" do
       item = Item.new(title: "food",
                       description: "good",
                       price: nil,
+                      status: "active")
+
+      expect(item).to_not be_valid
+    end
+
+    it "has a price that is a decimal numeric value" do
+      item = Item.new(title: "food",
+                      description: "good",
+                      price: 9.50,
+                      status: "active")
+      price = ActionController::Base.helpers.number_to_currency(item.price, unit: "$")
+
+      expect(price).to eq("$9.50")
+    end
+
+    it "has a price that is greater than zero" do
+      item = Item.new(title: "food",
+                      description: "good",
+                      price: 0.00,
                       status: "active")
 
       expect(item).to_not be_valid
@@ -66,6 +103,12 @@ RSpec.describe Item, type: :model do
       expect(item2).to_not be_valid
       expect(Item.count).to eq(1)
     end
+
+    it "has a stand-in photo if one is not provided" do
+      item = Item.create(valid_attributes)
+
+      expect(item.image.url).to eq("/Fat_unicorn.jpg")
+    end
   end
 
   context "item relationships" do
@@ -86,6 +129,15 @@ RSpec.describe Item, type: :model do
 
       cat_from_db = Category.find(category.id)
       expect(cat_from_db.name).to eq(category.name)
+    end
+
+    it "has at least one category" do
+      valid_attributes[:categories] = []
+      item = Item.new(valid_attributes)
+      expect(item).to_not be_valid
+
+      item2 = Item.create(valid_attributes.merge(categories: [category]))
+      expect(item2).to be_valid
     end
   end
 end
