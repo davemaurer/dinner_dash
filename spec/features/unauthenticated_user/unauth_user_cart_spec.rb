@@ -1,7 +1,6 @@
 require "rails_helper"
 
 feature "an unauthenticated user" do
-
   before(:each) do
     @item = Item.create(title: "Unicorn Roll",
                         description: "Good",
