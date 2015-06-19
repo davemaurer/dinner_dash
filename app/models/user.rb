@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
     presence: true,
     uniqueness: true,
     format: { :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/ }
+
+  enum role: %w[default admin]
 end
