@@ -18,7 +18,7 @@ RSpec.describe Item, type: :model do
 
   context "setting item attributes" do
     it "is valid" do
-      item = Item.new(valid_attributes)
+      item = Item.create(valid_attributes)
 
       expect(item).to be_valid
     end
@@ -135,7 +135,7 @@ RSpec.describe Item, type: :model do
       valid_attributes[:categories] = []
       item = Item.new(valid_attributes)
       expect(item).to_not be_valid
-      
+
       item2 = Item.create(valid_attributes.merge(categories: [category]))
       expect(item2).to be_valid
     end

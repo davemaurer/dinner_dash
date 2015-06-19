@@ -7,7 +7,6 @@ class Item < ActiveRecord::Base
   has_attached_file :image, :default_url => "/Fat_unicorn.jpg"
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
-  # validates :categories, presence: true
   validate :has_category
 
   has_many :item_categories, dependent: :destroy
@@ -19,5 +18,4 @@ class Item < ActiveRecord::Base
       errors.add(:categories, "item must have at least one category")
     end
   end
-
 end

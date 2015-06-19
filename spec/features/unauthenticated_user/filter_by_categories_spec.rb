@@ -28,16 +28,18 @@ RSpec.feature "filtering items by category", type: :feature do
 
     scenario "selecting a category will filter items index page" do
       pasta_cat = Category.find_by_name("Pasta")
-      pasta_cat.items.create(title: "Angel Hair Pasta",
-                             description: "Gooooood",
-                             price: 8,
-                             status: "active")
+      Item.create(title: "Angel Hair Pasta",
+                  description: "Gooooood",
+                  price: 8,
+                  status: "active",
+                  categories: [pasta_cat])
 
       burgers_cat = Category.find_by_name("Burgers")
-      burgers_cat.items.create(title: "Cyclops Burger",
-                               description: "Gooooood",
-                               price: 8,
-                               status: "active")
+      Item.create(title: "Cyclops Burger",
+                  description: "Gooooood",
+                  price: 8,
+                  status: "active",
+                  categories: [burgers_cat])
 
       visit items_path
 

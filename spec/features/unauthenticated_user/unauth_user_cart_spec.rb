@@ -3,10 +3,12 @@ require "rails_helper"
 feature "an unauthenticated user" do
 
   before(:each) do
+    category = Category.create(name: "sushi")
     @item = Item.create(title: "Unicorn Roll",
                         description: "Good",
                         price: 8,
-                        status: "active")
+                        status: "active",
+                        categories: [category])
   end
 
   scenario "can view their cart" do
@@ -107,7 +109,7 @@ feature "an unauthenticated user" do
       find(:link).click
     end
     click_button "+1"
-    
+
     expect(page).to have_content("Unicorn Roll ($8.00) x 2")
   end
 end
