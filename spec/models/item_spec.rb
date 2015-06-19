@@ -130,16 +130,15 @@ RSpec.describe Item, type: :model do
       expect(cat_from_db.name).to eq(category.name)
     end
 
-    xit "has at least one category" do
+    it "has at least one category" do
       item = Item.new(valid_attributes)
 
       expect(item).to_not be_valid
 
       category = Category.create(name: "new cat")
-      item2 = category.items.create(valid_attributes)
+      item2 = Item.create(valid_attributes.merge(categories: [category]))
 
       expect(item2).to be_valid
-      # expect(item.categories.count).to be >= 1
     end
   end
 end

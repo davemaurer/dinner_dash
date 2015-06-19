@@ -8,16 +8,16 @@ class Item < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
   # validates :categories, presence: true
-  # validate :has_category
+  validate :has_category
 
   has_many :item_categories, dependent: :destroy
   has_many :categories, through: :item_categories
 
 
-  # def has_category
-  #   if item_categories.count < 1
-  #     errors.add(:categories, "item must have at least one category")
-  #   end
-  # end
+  def has_category
+    if categories.to_a.count < 1
+      errors.add(:categories, "item must have at least one category")
+    end
+  end
 
 end
