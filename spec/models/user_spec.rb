@@ -62,7 +62,17 @@ RSpec.describe User, type: :model do
                     password: "password",
                     email: "stan@stan.com")
 
-    expect(user.role).to eq(0)
+    expect(user.role).to eq('default')
+  end
+
+  it "the user can have a role of admin" do
+    user = User.new(full_name: "Stan The Man",
+      user_name: "Theman",
+      password: "password",
+      email: "stan@stan.com",
+      role: 1)
+
+    expect(user.role).to eq('admin')
   end
 
   it "is invalid without an email" do
