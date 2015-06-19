@@ -6,32 +6,38 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+pasta_cat     = Category.new(name: "pasta")
+burgers_cat   = Category.new(name: "burgers")
+appetizer_cat = Category.new(name: "appetizer")
+dessert_cat   = Category.new(name: "dessert")
+curry_cat     = Category.new(name: "curry")
+
 unicorn_pie       = Item.create(title: "Unicorn Pie",
                                 description: "Gooooood",
                                 price: 8,
-                                status: "active")
+                                status: "active",
+                                categories: [dessert_cat])
+
 medusa_hair_pasta = Item.create(title: "Medusa Hair Pasta",
                                 description: "Gooooood",
                                 price: 8,
-                                status: "active")
+                                status: "active",
+                                categories: [pasta_cat])
+
 pixie_bread_stix  = Item.create(title: "Pixie Bread Stix",
                                 description: "Gooooood",
                                 price: 8,
-                                status: "active")
+                                status: "active",
+                                categories: [appetizer_cat])
+
 phoenix_curry     = Item.create(title: "Phoenix Spicy Curry",
                                 description: "Gooooood",
                                 price: 8,
-                                status: "active")
+                                status: "active",
+                                categories: [curry_cat])
+
 titan_burger      = Item.create(title: "Titan Burger",
                                 description: "Gooooood",
                                 price: 8,
-                                status: "active")
-
-
-pasta_cat     = Category.create(name: "pasta")
-burgers_cat   = Category.create(name: "burgers")
-appetizer_cat = Category.create(name: "appetizer")
-
-ItemCategory.create(item_id: medusa_hair_pasta.id, category_id: pasta_cat.id)
-ItemCategory.create(item_id: titan_burger.id, category_id: burgers_cat.id)
-ItemCategory.create(item_id: pixie_bread_stix.id, category_id: appetizer_cat.id)
+                                status: "active",
+                                categories: [burgers_cat])

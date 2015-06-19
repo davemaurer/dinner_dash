@@ -30,10 +30,11 @@ RSpec.describe Category, type: :model do
 
     it "destroys item-category records for itself if it is destroyed" do
       category = Category.create(name: "pasta")
-      item = category.items.create(title: "Angel Hair",
-                                   description: "Blond",
-                                   price: 8,
-                                   status: "active")
+      item = Item.create(title: "Angel Hair",
+                          description: "Blond",
+                          price: 8,
+                          status: "active",
+                          categories: [category])
       category.destroy
 
       item_category = ItemCategory.find_by_item_id(item.id)
