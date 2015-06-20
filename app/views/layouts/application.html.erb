@@ -20,8 +20,14 @@
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
-          <li><%= link_to image_tag("backpack_icon.png", width: 25), cart_path, class: "active" %></li>
-          <li><%= link_to "(#{@cart.count_all})", cart_path %></li>
+          <% if current_admin? %>
+            <li><%= link_to "Orders", "#" %></li>
+            <li><%= link_to "Menu", "#" %></li>
+            <li><%= link_to "Categories", "#" %></li>
+          <% else %>
+            <li><%= link_to image_tag("backpack_icon.png", width: 25), cart_path, class: "active" %></li>
+            <li><%= link_to "(#{@cart.count_all})", cart_path %></li>
+          <% end %>
         </ul>
 
         <!-- Left Nav Section -->

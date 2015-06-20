@@ -6,8 +6,12 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      redirect_to cart_path
+      if current_admin?
+        redirect_to admin_path(current_user)
+      else
+        redirect_to cart_path
       flash[:notice] = "Welcome, #{user.full_name}"
+      end
     else
       flash[:notice] = "Invalid login."
       render :new
