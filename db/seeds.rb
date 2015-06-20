@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 pasta_cat     = Category.new(name: "pasta")
 meat_cat      = Category.new(name: "burgers")
 appetizer_cat = Category.new(name: "appetizer")
@@ -136,31 +128,31 @@ sphynx         = Item.create(title: "Sphynx Special",
                              status: "active",
                              categories: [special_cat])
 
-cyclops        = item.create(title: "Cyclops Eye",
+cyclops        = Item.create(title: "Cyclops Eye",
                              description: "Goooooood",
                              price: 5.00,
                              status: "retired",
                              categories: [appetizer_cat])
 
 rachel = User.create(full_name: "Rachel Warbelow",
-  email: "demo+rachel@jumpstartlab.com",
-  password: "password")
+                     email: "demo+rachel@jumpstartlab.com",
+                     password: "password")
 
-jeff = User.create(full_name: "Jeff Casimir",
-  email: "demo+jeff@jumpstartlab.com",
-  password: "password",
-  user_name: "j3")
+jeff   = User.create(full_name: "Jeff Casimir",
+                     email: "demo+jeff@jumpstartlab.com",
+                     password: "password",
+                     user_name: "j3")
 
-jorge = User.create(full_name: "Jorge Tellez",
-  email: "demo+jorge@jumpstartlab.com",
-  password: "password",
-  user_name: "novohispano")
+jorge  = User.create(full_name: "Jorge Tellez",
+                     email: "demo+jorge@jumpstartlab.com",
+                     password: "password",
+                     user_name: "novohispano")
 
-admin = User.create(full_name: "Josh Cheek",
-  email: "demo+josh@jumpstartlab.com",
-  password: "password",
-  user_name: "josh",
-  role: 1)
+admin  = User.create(full_name: "Josh Cheek",
+                     email: "demo+josh@jumpstartlab.com", 
+                     password: "password",
+                     user_name: "josh",
+                     role: 1)
 
 Order.create(items: [unicorn, medusa, pixie],
              user_id: rachel.id,
