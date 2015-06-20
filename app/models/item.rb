@@ -20,4 +20,8 @@ class Item < ActiveRecord::Base
       errors.add(:categories, "item must have at least one category")
     end
   end
+  
+  def quantity
+    order_items.where(item_id: self.id).count
+  end
 end

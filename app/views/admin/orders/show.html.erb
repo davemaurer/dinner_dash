@@ -21,3 +21,32 @@
     <h1 class="centered-text">Purchaser Name: <%= @order.purchaser_name %></h1>
   </div>
 </div>
+
+<div class="row">
+  <div class="large-12 large-centered columns">
+    <h1 class="centered-text">Purchaser Email: <%= @order.purchaser_email %></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 large-centered columns">
+    <h1 class="centered-text">Menu Items:</h1>
+    <ul>
+      <% @order.items.each do |item| %>
+        <li class="large-12 centered-text columns"><%= link_to "#{item.title}", item %>: <%= item.quantity %> x <%= number_to_currency(item.price, unit: "$") %>, Subtotal = <%= number_to_currency((item.quantity * item.price), unit: "$") %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 large-centered columns">
+    <h1 class="centered-text">Order Total: <%= number_to_currency(@order.total) %></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 large-centered columns">
+    <%= link_to "<< Back to Orders Page", admin_orders_path, class: "large-12 centered-text columns" %>
+  </div>
+</div>
