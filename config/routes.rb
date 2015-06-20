@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
 
-  resource :admin
+  resource :admin, only: [:show]
   
   root to: "items#index"
 

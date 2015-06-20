@@ -4,7 +4,9 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(user_name: params[:session][:user_name])
-    if user && user.authenticate(params[:session][:password])
+    if current_admin?
+      redirect_to admin_path
+    elsif user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       redirect_to cart_path
       flash[:notice] = "Welcome, #{user.full_name}"
