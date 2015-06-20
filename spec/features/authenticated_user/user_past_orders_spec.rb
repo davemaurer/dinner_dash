@@ -2,25 +2,25 @@ require "rails_helper"
 
 RSpec.feature "the authenticated user's past orders", type: :feature do
 
-  before(:each) do
-    category = Category.create(name: "dessert")
+    let(:category) { Category.create(name: "dessert") }
 
-    unicorn  = Item.create(title: "Unicorn Pie",
-                           description: "Good",
-                           price: 8,
-                           status: "active",
-                           categories: [category])
+    let(:unicorn) { Item.create(title: "Unicorn Pie",
+                                description: "Good",
+                                price: 8,
+                                status: "active",
+                                categories: [category]) }
 
-    jaime    = User.create(full_name: "Jamie Lannister",
+    let(:jamie)    { User.create(full_name: "Jamie Lannister",
                            user_name: "LannisterGold",
                            email: "jamie@casterlyrock.com",
-                           password: "password")
+                           password: "password") }
 
     order    = Order.create(status: "ordered",
                             total_price: "100",
                             user_id: jaime.id,
                             items: [unicorn])
 
+  before(:each) do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(jaime)
   end
 
@@ -48,7 +48,7 @@ RSpec.feature "the authenticated user's past orders", type: :feature do
     end
   end
 
-  xscenario "orders index shows all past orders for user" do
+  scenario "orders index shows all past orders for user" do
     visit orders_path
 
     within(".orders") do
