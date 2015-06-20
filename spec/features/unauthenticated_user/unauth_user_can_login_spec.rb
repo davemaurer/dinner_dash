@@ -14,7 +14,7 @@ RSpec.feature "the unauthenticated user", type: :feature do
 
     visit items_path
     click_link "Login"
-    fill_in "Username", with: "Theman"
+    fill_in "Email", with: "stan@stan.com"
     fill_in "Password", with: "password"
     click_button "Login"
 
@@ -27,7 +27,7 @@ RSpec.feature "the unauthenticated user", type: :feature do
 
     visit items_path
     click_link "Login"
-    fill_in "Username", with: "Theman"
+    fill_in "Email", with: "stan@stan.com"
     fill_in "Password", with: "password"
     click_button "Login"
 
