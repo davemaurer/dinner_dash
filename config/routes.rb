@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :categories
+  end
+
   resources :items, only: [:index, :show]
   resources :orders, only: [:create, :show]
   resource :cart, only: [:create, :show, :update, :destroy]

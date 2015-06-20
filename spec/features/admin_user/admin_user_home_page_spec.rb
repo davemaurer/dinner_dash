@@ -22,8 +22,7 @@ RSpec.feature "the admin user" do
   scenario "sees admin home page after logging in" do
     admin = User.create(valid_attributes)
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-    click_link "Logout"
+    # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     visit items_path
     click_link "Login"
     fill_in "Username", with: "admin"
