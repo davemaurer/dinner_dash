@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="large-12 large-centered columns">
+    <h1 class="centered-text">All Orders</h1>
+  </div>
+</div>
+
+<% @orders.each do |order| %>
+<ul>
+  <li>
+    <%= link_to "Order: #{order.id}", admin_order_path(order) %>
+  </li>
+</ul>
+<% end %>
