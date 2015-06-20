@@ -3,14 +3,24 @@
     <br>
     <h1 class="orders">Your Past Orders</h1>
 
-      <% @order.order_items.each do |order_item| %>
-        <li><%= link_to "#{order_item.item.title}", item_path(order_item.item) %>: $<%= order_item.item.price %> x <%= order_item.quantity %>.....$<%= (order_item.item.price * order_item.quantity) %></li>
+    <table class="orders">
+      <tr>
+        <th>Date Ordered</th><th>Total Price</th><th>Status</th>
+      </tr>
+      <% @orders.each do |order| %>
+        <tr>
+          <td>
+            <%= link_to order.created_at.to_s, order_path(order) %>
+          </td>
+          <td>
+            <%= number_to_currency(order.total_price, unit: "$") %>
+          </td>
+          <td>
+            <%= order.status %>
+          </td>
+        </tr>
       <% end %>
-      <br>
-      <h3>Order Total: $<%= @order.total_price %></h3><br>
-      <h3>Order Status: <%= @order.status %></h3><br>
-      <h3>Order Submitted: <%= @order.created_at %></h3>
-
+    </table>
 
   </div>
 </div>

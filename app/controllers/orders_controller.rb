@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-
+    @orders = Order.all
   end
 
   private

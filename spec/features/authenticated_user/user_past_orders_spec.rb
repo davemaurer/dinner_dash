@@ -1,27 +1,26 @@
 require "rails_helper"
 
 RSpec.feature "the authenticated user's past orders", type: :feature do
+  before(:each) do
+    category = Category.create(name: "dessert")
 
-    let(:category) { Category.create(name: "dessert") }
+    unicorn  = Item.create(title: "Unicorn Pie",
+                           description: "Good",
+                           price: 8,
+                           status: "active",
+                           categories: [category])
 
-    let(:unicorn) { Item.create(title: "Unicorn Pie",
-                                description: "Good",
-                                price: 8,
-                                status: "active",
-                                categories: [category]) }
-
-    let(:jamie)    { User.create(full_name: "Jamie Lannister",
+    jamie    = User.create(full_name: "Jamie Lannister",
                            user_name: "LannisterGold",
                            email: "jamie@casterlyrock.com",
-                           password: "password") }
+                           password: "password")
 
     order    = Order.create(status: "ordered",
                             total_price: "100",
-                            user_id: jaime.id,
+                            user_id: jamie.id,
                             items: [unicorn])
 
-  before(:each) do
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(jaime)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(jamie)
   end
 
   scenario "authenticated user always has a 'Past Orders' button" do
@@ -43,7 +42,8 @@ RSpec.feature "the authenticated user's past orders", type: :feature do
     click_link "Past Orders"
 
     expect(current_path).to eq(orders_path)
-    within(".orders") do
+
+    within first(".orders") do
       expect(page).to have_content("Your Past Orders")
     end
   end
@@ -51,18 +51,16 @@ RSpec.feature "the authenticated user's past orders", type: :feature do
   scenario "orders index shows all past orders for user" do
     visit orders_path
 
-    within(".orders") do
-      expect(page).to have_content(order.created_at.to_s)
+    within("table") do
+      expect(page).to have_content(Order.first.created_at.to_s)
     end
   end
 
+  scenario "each order has a link to the order show page" do
+    order = Order.first
 
-#   as a non-admin authenticated user
-#
-# when i visit 'user_path'
-#
-# and i click the 'past orders' button
-#
-# i see a list of past orders as links to view each one ('/order/:id'
-
+    visit orders_path
+    click_link order.created_at.to_s
+    expect(current_path).to eq(order_path(order.id))
+  end
 end
