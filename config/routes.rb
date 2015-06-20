@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :categories
   end
 
+  resource :admin, only: [:show]
+
   resources :items, only: [:index, :show]
   resources :orders, only: [:create, :show]
   resource :cart, only: [:create, :show, :update, :destroy]
@@ -11,8 +13,6 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
 
-  resource :admin, only: [:show]
-  
   root to: "items#index"
 
   delete '/logout', to: 'sessions#destroy'

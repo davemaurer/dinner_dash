@@ -19,12 +19,19 @@ RSpec.feature "the admin user" do
     expect(page).to have_content("Welcome, Admin")
   end
 
-  scenario "sees admin home page after logging in" do
+  xscenario "sees admin home page after logging in" do
     admin = User.create(valid_attributes)
 
-    # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
     visit items_path
-    click_link "Login"
+    click_link "Logout"
+    save_and_open_page
+
+    expect(current_path).to eq items_path
+    within ".left" do
+      first(:link).click
+    end
     fill_in "Username", with: "admin"
     fill_in "Password", with: "password"
     click_button "Login"
