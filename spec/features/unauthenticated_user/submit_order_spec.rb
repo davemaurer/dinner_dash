@@ -1,7 +1,7 @@
 require "rails_helper"
 
-feature "an authenticated user" do
 
+feature "an authenticated user" do
   before(:each) do
     category = Category.create(name: "dessert")
     @unicorn = Item.create(title: "Unicorn Pie",
@@ -56,7 +56,7 @@ feature "an authenticated user" do
     expect(page).to have_content("Customer Name: John Doe")
     expect(page).to have_link("Unicorn Pie")
     expect(page).to have_content("Order Total: $8")
-    expect(page).to have_content("Order Status: pending")
+    expect(page).to have_content("Order Status: ordered")
     expect(page).to have_content("Order Submitted:")
   end
 
