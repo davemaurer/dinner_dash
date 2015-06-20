@@ -1,0 +1,22 @@
+<div class="large-12 large-centered columns">
+  <%= form_for [:admin, @item] do |f| %>
+    <%= f.label "title" %>
+    <%= f.text_field "title" %><br>
+
+    <%= f.label "description" %>
+    <%= f.text_area "description" %><br>
+
+    <%= f.label "price" %>
+    <%= f.text_field "price" %><br>
+  
+    <%= f.label "image" %>
+    <%= f.file_field "image" %>
+
+    <%= f.label "Categories" %>
+    <% Category.all.each do |category| %>
+      <option value=<%= category.name.to_s %><%= category.id %></option>
+    <% end %>
+    
+    <%= f.submit "Create Item", :class => "button round small" %>
+  <% end %>
+</div>

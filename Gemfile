@@ -33,7 +33,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'byebug'
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
+  # Access an IRB console on exception pages or by using <%= console %> in items
   gem 'web-console', '~> 2.0'
 end
 

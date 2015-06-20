@@ -24,4 +24,15 @@ class Item < ActiveRecord::Base
   def quantity
     order_items.where(item_id: self.id).count
   end
+  
+  def self.new_plus_categories(params)
+    item = self.new(params)
+    binding.pry
+    if params[:categories]
+      params[:categories].each do |category_id|
+        item.categories << Category.find(category_id)
+      end
+    end
+    item
+  end
 end
