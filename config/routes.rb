@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :items, only: [:index, :show]
-  resources :orders, only: [:create, :show]
+  resources :orders, only: [:create, :show, :index]
   resource :cart, only: [:create, :show, :update, :destroy]
   post '/items', to: 'items#index'
 
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   resource :admin
-  
+
   root to: "items#index"
 
   delete '/logout', to: 'sessions#destroy'

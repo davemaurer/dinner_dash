@@ -5,7 +5,7 @@
     <h1>Your Order:</h1>
     <br>
     <h3>Customer Name: <%= @order.user.full_name %></h3><br>
-    
+
     <% @order.order_items.each do |order_item| %>
       <li><%= link_to "#{order_item.item.title}", item_path(order_item.item) %>: $<%= order_item.item.price %> x <%= order_item.quantity %>.....$<%= (order_item.item.price * order_item.quantity) %></li>
     <% end %>

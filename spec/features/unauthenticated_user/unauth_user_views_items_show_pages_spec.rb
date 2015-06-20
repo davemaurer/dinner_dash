@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "an authenticated user" do
+feature "an unauthenticated user" do
 
   before(:each) do
     pasta_cat     = Category.new(name: "pasta")

@@ -1,9 +1,9 @@
 require "rails_helper"
 
-feature "an unauthenticated user" do
+feature "an authenticated user" do
 
   before(:each) do
-    category = Category.create(name: "new cat")
+    category = Category.create(name: "dessert")
     @unicorn = Item.create(title: "Unicorn Pie",
                            description: "Good",
                            price: 8,
