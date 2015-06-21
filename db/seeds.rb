@@ -86,7 +86,7 @@ hydra          = Item.create(title: "Hydra Vodka",
                              status: "active",
                              categories: [drinks_cat])
 
-pygmy          = Item.create(title: "Pygmy Pie",
+rainbow_pie          = Item.create(title: "Rainbow Pie",
                              description: "Gooooood",
                              price: 5.50,
                              status: "active",
@@ -110,7 +110,7 @@ harpy          = Item.create(title: "BBQ Harpy Wings",
                              status: "active",
                              categories: [meat_cat, appetizer_cat])
 
-manticore      = Item.create(title: "Manticornmeal",
+manticore      = Item.create(title: "Manticorn Dogs",
                              description: "Gooooood",
                              price: 8.99,
                              status: "retired",
@@ -149,7 +149,7 @@ jorge  = User.create(full_name: "Jorge Tellez",
                      user_name: "novohispano")
 
 admin  = User.create(full_name: "Josh Cheek",
-                     email: "demo+josh@jumpstartlab.com", 
+                     email: "demo+josh@jumpstartlab.com",
                      password: "password",
                      user_name: "josh",
                      role: 1)
@@ -174,9 +174,9 @@ Order.create(items: [pegasus_wings, leg_of_griffin, leg_of_pegasus],
              total_price: (pegasus_wings.price + leg_of_griffin.price + leg_of_pegasus.price),
              status: "paid")
 
-Order.create(items: [hydra, pygmy, centaur],
+Order.create(items: [hydra, rainbow_pie, centaur],
              user_id: jeff.id,
-             total_price: (hydra.price + pygmy.price + centaur.price),
+             total_price: (hydra.price + rainbow_pie.price + centaur.price),
              status: "cancelled")
 
 Order.create(items: [cerberus, harpy, manticore],
@@ -203,4 +203,3 @@ Order.create(items: [hydra, medusa, mermaid],
              user_id: rachel.id,
              total_price: (hydra.price + medusa.price + mermaid.price),
              status: "ordered")
-
