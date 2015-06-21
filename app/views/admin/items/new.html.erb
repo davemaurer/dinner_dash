@@ -1,3 +1,8 @@
+<% @item.errors.full_messages.each do |message| %>
+  <%= message %>
+<% end %>
+
+
 <div class="large-12 large-centered columns">
   <%= form_for [:admin, @item] do |f| %>
     <%= f.label "title" %>
@@ -13,8 +18,9 @@
     <%= f.file_field "image" %>
 
     <%= f.label "Categories" %>
-    <% Category.all.each do |category| %>
-      <option value=<%= category.name.to_s %><%= category.id %></option>
+    <% categories.each do |category| %>
+      <%= f.check_box(:categories, { multiple: true }, category.id ) %>
+      <%= label_tag(:categories, category.name) %>
     <% end %>
     
     <%= f.submit "Create Item", :class => "button round small" %>

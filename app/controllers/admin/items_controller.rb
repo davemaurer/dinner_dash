@@ -10,6 +10,7 @@ class Admin::ItemsController < Admin::BaseController
   
   def create
     @item = Item.new_plus_categories(item_params)
+    binding.pry
     if @item.save
       flash[:message] = "Thanks for creating #{@item.title}!"
       redirect_to admin_items_path
@@ -22,6 +23,6 @@ class Admin::ItemsController < Admin::BaseController
   private
   
   def item_params
-    params.require(:item).permit(:title, :description, :price, :image, :categories)
+    params.require(:item).permit(:title, :description, :price, :image, :categories => [])
   end
 end

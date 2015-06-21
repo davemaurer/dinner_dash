@@ -26,13 +26,13 @@ class Item < ActiveRecord::Base
   end
   
   def self.new_plus_categories(params)
-    item = self.new(params)
-    binding.pry
     if params[:categories]
-      params[:categories].each do |category_id|
-        item.categories << Category.find(category_id)
+      params[:categories].delete("0")
+      params[:categories] = params[:categories].map do |category_id|
+        Category.find(category_id.to_i)
       end
     end
+    item = self.new(params)
     item
   end
 end
