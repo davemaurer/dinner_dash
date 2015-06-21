@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :categories, only: [:index, :create, :destroy]
-    resources :orders, only: [:index, :show]
+    resources :orders, only: [:index, :show, :update]
     resources :items, only: [:index, :new, :create, :edit, :update]
   end
 
@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :orders, only: [:create, :show, :index]
   resource :cart, only: [:create, :show, :update, :destroy]
-  post '/items', to: 'items#index'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
