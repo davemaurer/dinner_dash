@@ -10,7 +10,6 @@ class Admin::ItemsController < Admin::BaseController
   
   def create
     @item = Item.new_plus_categories(item_params)
-    binding.pry
     if @item.save
       flash[:message] = "Thanks for creating #{@item.title}!"
       redirect_to admin_items_path

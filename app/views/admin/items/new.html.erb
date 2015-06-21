@@ -4,7 +4,7 @@
 
 
 <div class="large-12 large-centered columns">
-  <%= form_for [:admin, @item] do |f| %>
+  <%= form_for([:admin, @item], html: {multipart: true}) do |f| %>
     <%= f.label "title" %>
     <%= f.text_field "title" %><br>
 
@@ -13,7 +13,10 @@
 
     <%= f.label "price" %>
     <%= f.text_field "price" %><br>
-  
+
+    <% if @item.image.exists? %>
+      <%= image_tag @item.image.url %><br/>
+    <% end %>
     <%= f.label "image" %>
     <%= f.file_field "image" %>
 
