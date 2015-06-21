@@ -4,6 +4,14 @@
   </div>
 </div>
 
+</div>
+<p>
+  Status "Ordered": <%= @orders.ordered.count %>
+  Status "Paid": <%= @orders.paid.count %>
+  Status "Cancelled": <%= @orders.cancelled.count %>
+  Status "Completed": <%= @orders.completed.count %>
+</p>
+
 <% @orders.each do |order| %>
 <ul>
   <li>

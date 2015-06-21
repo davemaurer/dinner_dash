@@ -24,6 +24,7 @@
             <li><%= link_to "Orders", admin_orders_path %></li>
             <li><%= link_to "Menu", admin_items_path %></li>
             <li><%= link_to "Categories", "#" %></li>
+            <li><%= link_to "#{current_admin.full_name}", admin_path %></li>
           <% elsif current_user %>
             <li><%= link_to "Past Orders", orders_path %></li>
           <% else %>
