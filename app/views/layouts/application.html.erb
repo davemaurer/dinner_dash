@@ -21,6 +21,7 @@
         <!-- Right Nav Section -->
         <ul class="right">
           <% if current_admin? %>
+            <li><%= link_to "Home", admin_path %></li>
             <li><%= link_to "Orders", admin_orders_path %></li>
             <li><%= link_to "Menu", admin_items_path %></li>
             <li><%= link_to "Categories", "#" %></li>

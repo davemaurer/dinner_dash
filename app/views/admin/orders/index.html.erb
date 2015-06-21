@@ -4,10 +4,18 @@
   </div>
 </div>
 
+</div>
+<p>
+  Status "Ordered": <%= @orders.ordered.count %><br>
+  Status "Paid": <%= @orders.paid.count %><br>
+  Status "Cancelled": <%= @orders.cancelled.count %><br>
+  Status "Completed": <%= @orders.completed.count %><br>
+</p>
+
 <% @orders.each do |order| %>
 <ul>
   <li>
-    <%= link_to "Order: #{order.id}", admin_order_path(order) %>
+    <%= link_to "Order: #{order.id}", admin_order_path(order) %>: <%= order.status %>
   </li>
 </ul>
 <% end %>

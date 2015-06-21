@@ -114,7 +114,8 @@ manticore      = Item.create(title: "Manticorn Dogs",
                              description: "Gooooood",
                              price: 8.99,
                              status: "retired",
-                             categories: [appetizer_cat])
+                             categories: [appetizer_cat],
+                             image: File.open('public/corn_dog.jpg'))
 
 siren          = Item.create(title: "Siren Stew",
                              description: "Gooooood",
