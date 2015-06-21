@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
-    resources :categories
+    resources :categories, only: [:index, :create, :destroy]
     resources :orders, only: [:index, :show]
     resources :items, only: [:index, :new, :create]
   end
