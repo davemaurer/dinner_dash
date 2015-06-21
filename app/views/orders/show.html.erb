@@ -12,6 +12,9 @@
     <br>
     <h3>Order Total: $<%= @order.total_price %></h3><br>
     <h3>Order Status: <%= @order.status %></h3><br>
-    <h3>Order Submitted: <%= @order.created_at %></h3>
+    <h3>Order Submitted: <%= @order.created_at %></h3><br>
+    <% if @order.status == "ordered" || @order.status == "cancelled" %>
+      <h3>Order Status Updated to "<%= @order.status %>": <%= @order.updated_at %></h3>
+    <% end %>
   </div>
 </div>

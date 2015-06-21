@@ -12,7 +12,6 @@ RSpec.feature "the unauthenticated user" do
     visit items_path
 
     expect(page).not_to have_link("Menu")
-    expect(page).not_to have_link("Orders")
     expect(page).not_to have_link("Categories")
   end
 
@@ -20,7 +19,6 @@ RSpec.feature "the unauthenticated user" do
     visit items_path
 
     expect(page).not_to have_link("Menu")
-    expect(page).not_to have_link("Orders")
     expect(page).not_to have_link("Categories")
   end
 

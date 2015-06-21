@@ -40,4 +40,20 @@ class Order < ActiveRecord::Base
   def quantity(item)
     items.where(id: item.id).count
   end
+  
+  def self.filter_by_status(status)
+    if status == "all"
+      all
+    else
+      where(status: status)
+    end
+  end
+  
+  def cancel
+    status == "cancelled"
+  end
+  
+  def self.by_user(user_id)
+    where(user_id: user_id)
+  end
 end
