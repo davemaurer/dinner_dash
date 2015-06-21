@@ -33,7 +33,18 @@
     <% @orders.each do |order| %>
       <ul>
         <li>
-          <%= link_to "Order: #{order.id}", admin_order_path(order) %>: <%= order.status %>
+          <%= link_to "Order: #{order.id}", admin_order_path(order) %>: <%= order.status %><br>
+          <% form_for(order) do |f| %>
+            <% if order.status == "ordered" || order.status == "paid" %>
+              <%= f.check_box(:status) %>
+              <%= f.label(:status, "cancelled") %>
+              <% if order.status == "ordered" %>
+                <%= f.label(:status, "mark as paid") %>
+              <% else %>
+                <%= f.label(:status, "mark as completed") %>
+              <% end %>
+            <% end %>
+          <% end %>  
         </li>
       </ul>
     <% end %>

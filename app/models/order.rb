@@ -48,4 +48,10 @@ class Order < ActiveRecord::Base
       where(status: status)
     end
   end
+  
+  def cancel
+    status == "cancelled"
+  end
+  
+  
 end
