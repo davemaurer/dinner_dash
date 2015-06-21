@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  
+
   def create
     @items = []
     @cart.contents.each do |item_id, quantity|
@@ -15,17 +15,21 @@ class OrdersController < ApplicationController
     flash[:notice] = "Thank you for your order, #{@order.user.full_name}!"
     redirect_to @order
   end
-  
+
   def show
     @order = Order.find(params[:id])
   end
-  
+
+  def index
+    @orders = Order.all
+  end
+
   private
-  
+
   def total_price
     @cart.item_quantities.inject(0) do |sum, (item, quantity)|
       sum + (item.price * quantity)
     end
   end
-  
+
 end

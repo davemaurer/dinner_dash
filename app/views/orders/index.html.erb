@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="large-12 columns centered-text">
+    <br>
+    <h1 class="orders">Your Past Orders</h1>
+
+    <table class="orders">
+      <tr>
+        <th>Date Ordered</th><th>Total Price</th><th>Status</th>
+      </tr>
+      <% @orders.each do |order| %>
+        <tr>
+          <td>
+            <%= link_to order.created_at.to_s, order_path(order) %>
+          </td>
+          <td>
+            <%= number_to_currency(order.total_price, unit: "$") %>
+          </td>
+          <td>
+            <%= order.status %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+  </div>
+</div>
