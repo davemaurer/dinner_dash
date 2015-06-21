@@ -57,14 +57,13 @@ RSpec.feature "the admin can create new categories", type: :feature do
 
   scenario "admin can create a new category" do
     visit admin_categories_path
-    binding.pry
 
     fill_in("Name", with: "tea cakes")
     click_button("Create Category")
 
     expect(current_path).to eq(admin_categories_path)
     within(".categories") do
-      expect(page).to have_content("Tea cakes")
+      expect(page).to have_content("Tea Cakes")
     end
   end
 
