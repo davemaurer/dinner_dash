@@ -19,9 +19,9 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
   end
-
+  
   def index
-    @orders = Order.all
+    @orders = Order.by_user(current_user.id)
   end
 
   private
