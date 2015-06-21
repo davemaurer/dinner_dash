@@ -17,11 +17,15 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    if current_user && current_user.orders.map(&:id).include?(params[:id].to_i)
+      @order = Order.find(params[:id])
+    else
+      render file: "/public/404"
+    end
   end
-
+  
   def index
-    @orders = Order.all
+    @orders = Order.by_user(current_user.id)
   end
 
   private
