@@ -35,4 +35,14 @@ class Item < ActiveRecord::Base
     item = self.new(params)
     item
   end
+
+  def update_plus_categories(params)
+    if params[:categories]
+      params[:categories].delete("0")
+      params[:categories] = params[:categories].map do |category_id|
+        Category.find(category_id.to_i)
+      end
+    end
+    self.update(params)
+  end
 end

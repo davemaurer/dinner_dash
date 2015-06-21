@@ -15,7 +15,7 @@
         <p>
           <%= image_tag item.image.url %>
           <%= link_to item.title, item_path(item) %>: <%= number_to_currency(item.price, unit: "$") %>
-          <%= button_to "Edit Item", "#", class: "round button tiny" %>
+          <%= button_to "Edit Item", edit_admin_item_path(item), method: :get, class: "round button tiny" %>
         </p>
       </div>
   <% end %>

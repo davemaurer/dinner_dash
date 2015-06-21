@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :categories
     resources :orders, only: [:index, :show]
-    resources :items, only: [:index, :new, :create]
+    resources :items, only: [:index, :new, :create, :edit, :update]
   end
 
   resource :admin, only: [:show]
