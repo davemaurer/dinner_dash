@@ -57,6 +57,7 @@ RSpec.feature "the admin can create new categories", type: :feature do
 
   scenario "admin can create a new category" do
     visit admin_categories_path
+    binding.pry
 
     fill_in("Name", with: "tea cakes")
     click_button("Create Category")
