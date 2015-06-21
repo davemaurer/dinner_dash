@@ -1,13 +1,11 @@
 <div class="row">
-  <div class="large-12 columns centered-text">
+  <div class="large-12 columns centered-text categories">
     <br>
     <br>
     <h1><%= @item.title %></h1>
-    <ul class="categories">
-      <% @item.categories.each do |category| %>
-        <li><%= category.name %></li>
-      <% end %>
-    </ul>
+    <% @item.categories.each do |category| %>
+      <%= category.name %>
+    <% end %>
     <br>
     <p><%= image_tag @item.image.url %></p>
     <br>
@@ -19,6 +17,8 @@
       <h4>This item has been retired</h4>
     <% end %>
     <br>
-    <h4><%= link_to "<< Back", items_path %></h4>
+    <div id="nav_links">
+      <h4><%= link_to "<< Back", admin_items_path %> | <%= link_to "Edit >>", edit_admin_item_path(@item) %></h4>
+    </div>
   </div>
 </div>

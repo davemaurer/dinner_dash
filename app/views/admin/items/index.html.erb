@@ -14,7 +14,7 @@
       <div class="large-3 columns">
         <p>
           <%= image_tag item.image.url %>
-          <%= link_to item.title, item_path(item) %>: <%= number_to_currency(item.price, unit: "$") %><br>
+          <%= link_to item.title, admin_item_path(item) %>: <%= number_to_currency(item.price, unit: "$") %><br>
           Item is "<%= item.status %>"
           <%= button_to "Edit Item", edit_admin_item_path(item), method: :get, class: "round button tiny" %>
         </p>
