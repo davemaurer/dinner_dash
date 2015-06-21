@@ -10,7 +10,7 @@
       <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown"><%= @dropdown %></button><br>
       <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
         <% @categories.each do |category|%>
-          <li><%= link_to category.name, items_path(category_id: category), method: :post %></li>
+          <li><%= link_to category.name, items_path(category_id: category) %></li>
         <% end %>
       </ul>
     </h3>

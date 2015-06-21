@@ -4,18 +4,38 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="large-12 columns centered-text">
+    <p>
+      Status "Ordered": <%= @orders.ordered.count %><br>
+      Status "Paid": <%= @orders.paid.count %><br>
+      Status "Cancelled": <%= @orders.cancelled.count %><br>
+      Status "Completed": <%= @orders.completed.count %><br>
+    </p>
+  </div>
 </div>
-<p>
-  Status "Ordered": <%= @orders.ordered.count %><br>
-  Status "Paid": <%= @orders.paid.count %><br>
-  Status "Cancelled": <%= @orders.cancelled.count %><br>
-  Status "Completed": <%= @orders.completed.count %><br>
-</p>
 
-<% @orders.each do |order| %>
-<ul>
-  <li>
-    <%= link_to "Order: #{order.id}", admin_order_path(order) %>: <%= order.status %>
-  </li>
-</ul>
-<% end %>
+<div class="row">
+  <div class="large-12 columns centered-text">
+    <h3 class="large-12 columns filter">Choose your food quest:
+      <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown"><%= @dropdown %></button><br>
+      <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
+        <% @statuses.each do |status|%>
+          <li><%= link_to status, admin_orders_path(status: status), method: :get %></li>
+        <% end %>
+      </ul>
+    </h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns centered-text">
+    <% @orders.each do |order| %>
+      <ul>
+        <li>
+          <%= link_to "Order: #{order.id}", admin_order_path(order) %>: <%= order.status %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+</div>

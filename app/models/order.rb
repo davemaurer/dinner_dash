@@ -40,4 +40,12 @@ class Order < ActiveRecord::Base
   def quantity(item)
     items.where(id: item.id).count
   end
+  
+  def self.filter_by_status(status)
+    if status == "all"
+      all
+    else
+      where(status: status)
+    end
+  end
 end
