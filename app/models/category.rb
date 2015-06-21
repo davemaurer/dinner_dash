@@ -9,4 +9,8 @@ class Category < ActiveRecord::Base
   def capitalize_name
     self.name.capitalize!
   end
+  
+  def self.selector_helper
+    all.map{ |category| [category.name, category.id] }
+  end
 end

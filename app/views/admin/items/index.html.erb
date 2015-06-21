@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="large-12 large-centered columns">
+    <h1 class="centered-text">Your Menu Items:</h1>
+  </div>
+</div>
+
+<div class="large-12 centered-text ">
+  <%= button_to "Add New Item", new_admin_item_path, method: :get, class: "round button large" %>
+</div>
+
+<% @items.each_slice(4) do |slice| %>
+  <div class="row items">
+    <% slice.each do |item| %>
+      <div class="large-3 columns">
+        <p>
+          <%= image_tag item.image.url %>
+          <%= link_to item.title, item_path(item) %>: <%= number_to_currency(item.price, unit: "$") %>
+          <%= button_to "Edit Item", "#", class: "round button tiny" %>
+        </p>
+      </div>
+  <% end %>
+  </div>
+<% end %>
+
+<div class="large-12 centered-text ">
+  <%= button_to "Add New Item", new_admin_item_path, method: :get, class: "round button large" %>
+</div>

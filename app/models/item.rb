@@ -20,4 +20,19 @@ class Item < ActiveRecord::Base
       errors.add(:categories, "item must have at least one category")
     end
   end
+  
+  def quantity
+    order_items.where(item_id: self.id).count
+  end
+  
+  def self.new_plus_categories(params)
+    if params[:categories]
+      params[:categories].delete("0")
+      params[:categories] = params[:categories].map do |category_id|
+        Category.find(category_id.to_i)
+      end
+    end
+    item = self.new(params)
+    item
+  end
 end

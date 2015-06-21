@@ -23,4 +23,16 @@ class Order < ActiveRecord::Base
   def purchaser_name
     user.full_name
   end
+  
+  def purchaser_email
+    user.email
+  end
+  
+  def total
+    items.map{ |item| item.price }.inject(:+)
+  end
+  
+  def quantity
+    items.where(id: item.id).count
+  end
 end

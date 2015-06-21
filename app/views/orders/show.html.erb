@@ -7,7 +7,7 @@
     <h3>Customer Name: <%= @order.user.full_name %></h3><br>
 
     <% @order.items.uniq.each do |item| %>
-      <li><%= link_to "#{item.title}", item_path(item) %>: <%= number_to_currency(item.price, unit: "$") %> x <%= @order.items.where(id: item.id).count %>.....<%= (number_to_currency((item.price * @order.items.where(id: item.id).count), unit: "$")) %></li>
+      <li><%= link_to "#{item.title}", item_path(item) %>: <%= number_to_currency(item.price, unit: "$") %> x <%= @order.quantity %>.....<%= (number_to_currency((item.price * @order.quantity.count), unit: "$")) %></li>
     <% end %>
     <br>
     <h3>Order Total: $<%= @order.total_price %></h3><br>
