@@ -32,7 +32,7 @@ class Order < ActiveRecord::Base
     items.map{ |item| item.price }.inject(:+)
   end
   
-  def quantity
+  def quantity(item)
     items.where(id: item.id).count
   end
 end
