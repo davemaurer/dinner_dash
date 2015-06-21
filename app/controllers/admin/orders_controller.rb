@@ -2,7 +2,7 @@ class Admin::OrdersController < Admin::BaseController
   def index
     if params[:status].nil?
       @orders = Order.all
-      @dropdown = "Order Status"
+      @dropdown = "Filter by Status"
     else
       @orders = Order.filter_by_status(params[:status])
       @dropdown = params[:status]
