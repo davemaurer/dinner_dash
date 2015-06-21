@@ -14,14 +14,21 @@
       <%= image_tag @item.image.url %><br/>
     <% end %>
     <%= f.label "image" %>
-    <%= f.file_field "image" %>
+    <%= f.file_field "image" %><br>
+
+    <%= f.label "status" %>
+    <%= f.select(:status, options_for_select([["active", "active"], ["retired", "retired"]],"active")) %><br>
 
     <%= f.label "Categories" %>
     <% categories.each do |category| %>
       <%= f.check_box(:categories, { multiple: true }, category.id ) %>
       <%= label_tag(:categories, category.name) %>
-    <% end %>
+    <% end %><br>
 
-    <%= f.submit "Finished", :class => "button round small" %>
+    <% if @item.id %>
+      <%= f.submit "Finished", method: :put, :class => "button round small" %>
+    <% else %>
+      <%= f.submit "Finished", :class => "button round small" %>
+    <% end %>
   <% end %>
 </div>

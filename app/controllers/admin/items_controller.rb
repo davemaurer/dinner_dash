@@ -30,13 +30,13 @@ class Admin::ItemsController < Admin::BaseController
       flash[:notice] = "You have successfully updated #{@item.title}"
     else
       flash.now[:errors] = @item.errors.full_messages.join(", ")
-      redirect_to admin_item_path(@item)
+      redirect_to admin_items_path
     end
   end
   
   private
   
   def item_params
-    params.require(:item).permit(:title, :description, :price, :image, :categories => [])
+    params.require(:item).permit(:title, :description, :price, :image, :status, :categories => [])
   end
 end
