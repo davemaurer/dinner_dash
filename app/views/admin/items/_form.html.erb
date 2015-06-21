@@ -1,4 +1,3 @@
-
 <div class="large-12 large-centered columns">
   <%= form_for([:admin, @item], html: {multipart: true}) do |f| %>
     <%= f.label "title" %>
@@ -8,11 +7,13 @@
     <%= f.text_area "description" %><br>
 
     <%= f.label "price" %>
-    <%= f.text_field "price" %><br>
-
-    <% if @item.image.exists? %>
-      <%= image_tag @item.image.url %><br/>
+    <% unless @item.price.nil? %>
+      <%= f.text_field "price" %><br>
+    <% else %>
+      <%= f.text_field "price" %><br>
     <% end %>
+
+    <%= image_tag @item.image.url %>
     <%= f.label "image" %>
     <%= f.file_field "image" %><br>
 
@@ -21,9 +22,13 @@
 
     <%= f.label "Categories" %>
     <% categories.each do |category| %>
-      <%= f.check_box(:categories, { multiple: true }, category.id ) %>
+      <% if @item.id %>
+        <%= f.check_box(:categories, { multiple: true, checked: (category.in? @item.categories) }, category.id) %>
+      <% else %>
+        <%= f.check_box(:categories, { multiple: true }, category.id ) %>
+      <% end %>
       <%= label_tag(:categories, category.name) %>
-    <% end %><br>
+    <% end %>
 
     <% if @item.id %>
       <%= f.submit "Finished", method: :put, :class => "button round small" %>
