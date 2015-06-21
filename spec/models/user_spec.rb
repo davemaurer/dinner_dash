@@ -26,7 +26,7 @@ RSpec.describe User, type: :model do
     expect(user).not_to be_valid
   end
 
-  it "is only valid if username name is more than 2 characters" do
+  it "is only valid if username is more than 2 characters" do
     user = User.new(full_name: "Stan The Man",
                     user_name: "T",
                     password: "password",
@@ -92,7 +92,7 @@ RSpec.describe User, type: :model do
     expect(user).not_to be_valid
   end
 
-  it "is invalid without a valid email" do
+  it "is invalid without a plausible email" do
     user = User.new(full_name: "Stan The Man",
                     user_name: "Theman",
                     password: "password",
@@ -100,5 +100,13 @@ RSpec.describe User, type: :model do
                     email: "blah")
 
     expect(user).not_to be_valid
+  end
+
+  it "is valid even if the user doesn't enter a user_name" do
+    user = User.new(full_name: "Rachel Warbelow",
+      password: "password",
+      email: "demo+rachel@jumpstartlab.com")
+
+    expect(user).to be_valid
   end
 end

@@ -19,4 +19,8 @@ class Order < ActiveRecord::Base
       errors.add(:items, "order must have at least one item")
     end
   end
+
+  def purchaser_name
+    user.full_name
+  end
 end

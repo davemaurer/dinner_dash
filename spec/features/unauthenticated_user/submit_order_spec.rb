@@ -29,7 +29,7 @@ feature "an authenticated user" do
 
     expect(current_path).to eq(login_path)
 
-    fill_in "Username", with: "john"
+    fill_in "Email", with: "john@john.com"
     fill_in "Password", with: "password"
     click_button "Login"
 
@@ -47,7 +47,7 @@ feature "an authenticated user" do
       first(:link).click
     end
     click_button "Checkout"
-    fill_in "Username", with: "john"
+    fill_in "Email", with: "john@john.com"
     fill_in "Password", with: "password"
     click_button "Login"
     click_button "Checkout"
@@ -67,7 +67,7 @@ feature "an authenticated user" do
       first(:link).click
     end
     click_button "Checkout"
-    fill_in "Username", with: "john"
+    fill_in "Email", with: "john@john.com"
     fill_in "Password", with: "password"
     click_button "Login"
     click_button "Checkout"

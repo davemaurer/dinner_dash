@@ -40,7 +40,7 @@ RSpec.feature "the unauthenticated user", type: :feature do
     click_button "Checkout"
 
     expect(current_path).to eq(login_path)
-    fill_in "Username", with: "john"
+    fill_in "Email", with: "john@john.com"
     fill_in "Password", with: "password"
     click_button "Login"
 
