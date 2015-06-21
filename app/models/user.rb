@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :orders
+  
   has_secure_password
 
   validates :full_name, presence: true
