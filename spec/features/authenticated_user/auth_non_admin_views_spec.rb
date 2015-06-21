@@ -9,7 +9,7 @@ RSpec.feature "the authenticated user" do
       email: "stan@stan.com" }
   }
 
-  scenario "stays on page when attempting to access any /admin route" do
+  scenario "stays on page when attempting to access the /admin route" do
     User.create(valid_attributes)
 
     visit items_path

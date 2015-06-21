@@ -3,9 +3,9 @@ require "rails_helper"
 RSpec.feature "admin can update categories for an item", type: :feature do
   before(:each) do
     dessert_cat = Category.create(name: "dessert")
-    curry_cat   = Category.new(name: "curry")
-    seafood_cat = Category.new(name: "seafood")
-    drinks_cat  = Category.new(name: "drinks")
+    curry_cat   = Category.create(name: "curry")
+    seafood_cat = Category.create(name: "seafood")
+    drinks_cat  = Category.create(name: "drinks")
 
     unicorn     = Item.create(title: "Unicorn Pie",
                               description: "Good",
@@ -66,8 +66,7 @@ RSpec.feature "admin can update categories for an item", type: :feature do
       end
     end
 
-    xscenario "admin can add a category from an item" do
-    # page does now show all categories in test
+    scenario "admin can add a category from an item" do
       visit edit_admin_item_path(item)
 
       find(:xpath, "//input[@value='#{curry.id}']").set(true)
