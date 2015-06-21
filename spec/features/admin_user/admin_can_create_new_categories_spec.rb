@@ -63,7 +63,7 @@ RSpec.feature "the admin can create new categories", type: :feature do
 
     expect(current_path).to eq(admin_categories_path)
     within(".categories") do
-      expect(page).to have_content("Tea cakes")
+      expect(page).to have_content("Tea Cakes")
     end
   end
 
