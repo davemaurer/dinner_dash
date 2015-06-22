@@ -44,4 +44,16 @@ class Item < ActiveRecord::Base
     end
     self.update(params)
   end
+
+  def price_to_s
+    unless valid_price_format?
+      self.price.to_s + "0"
+    else
+      self.price
+    end
+  end
+
+  def valid_price_format?
+    self.price.to_s.split(".").last.length == 2
+  end
 end
