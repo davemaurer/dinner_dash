@@ -33,7 +33,6 @@ class Item < ActiveRecord::Base
       end
     end
     item = self.new(params)
-    item
   end
 
   def update_plus_categories(params)
