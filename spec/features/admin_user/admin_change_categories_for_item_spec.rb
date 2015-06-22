@@ -30,7 +30,7 @@ RSpec.feature "admin can update categories for an item", type: :feature do
   scenario "the item show page for admins shows the item's categories" do
     visit admin_item_path(unicorn)
 
-    within(".categories") do
+    within(".whole-categories") do
       expect(page).to have_content("Dessert")
       expect(page).to have_content("Seafood")
     end
@@ -58,7 +58,7 @@ RSpec.feature "admin can update categories for an item", type: :feature do
       find(:xpath, "//input[@value='#{dessert.id}']").set(false)
       click_button "Finished"
 
-      within(".categories") do
+      within(".whole-categories") do
         expect(page).to_not have_content(dessert.name)
         expect(page).to have_content(seafood.name)
       end
@@ -70,7 +70,7 @@ RSpec.feature "admin can update categories for an item", type: :feature do
       find(:xpath, "//input[@value='#{curry.id}']").set(true)
       click_button "Finished"
 
-      within(".categories") do
+      within(".whole-categories") do
         expect(page).to have_content(curry.name)
         expect(page).to have_content(dessert.name)
         expect(page).to have_content(seafood.name)

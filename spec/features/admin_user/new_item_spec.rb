@@ -39,7 +39,7 @@ RSpec.feature "the admin can create new items", type: :feature do
     click_button "Finished"
 
     expect(current_path).to eq(admin_item_path(Item.first))
-    within(".row") do
+    within(".whole-categories") do
       expect(page).to have_content("babaganoush")
       expect(page).to have_content("eggplant mush with smokey hints")
     end
