@@ -38,9 +38,9 @@
             <%= f.label "Update Order Status" %>
             <% if order.status == "ordered" || order.status == "paid" %>
               <% if order.status == "ordered" %>
-                <%= f.select(:status, options_for_select([["cancelled", "cancelled"], ["paid", "paid"]])) %>
+                <%= f.select(:status, options_for_select([[" ", " "], ["paid", "paid"], ["cancelled", "cancelled"]])) %>
               <% else %>
-                <%= f.select(:status, options_for_select([["cancelled", "cancelled"], ["completed", "completed"]])) %>
+                <%= f.select(:status, options_for_select([[" ", " "], ["completed", "completed"], ["cancelled", "cancelled"]])) %>
               <% end %>
             <% end %>
             <%= f.submit "Update", method: :put, class: "button round small"  %>
