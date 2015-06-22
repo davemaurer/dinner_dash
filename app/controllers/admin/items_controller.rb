@@ -1,4 +1,5 @@
 class Admin::ItemsController < Admin::BaseController
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
     @items = Item.all
@@ -20,15 +21,12 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update_plus_categories(item_params)
       redirect_to admin_item_path(@item)
       flash[:notice] = "You have successfully updated #{@item.title}"
@@ -39,6 +37,10 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(:title, :description, :price, :image, :status, :categories => [])
