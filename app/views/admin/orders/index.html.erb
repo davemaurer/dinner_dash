@@ -32,15 +32,15 @@
   <div class="large-12 columns centered-text">
     <% @orders.each do |order| %>
       <ul>
-        <li>
+        <li class="order">
           <%= link_to "Order: #{order.id}", admin_order_path(order) %>: <%= order.status %><br>
           <%= form_for([:admin, order]) do |f| %>
             <%= f.label "Update Order Status" %>
             <% if order.status == "ordered" || order.status == "paid" %>
               <% if order.status == "ordered" %>
-                <%= f.select(:status, options_for_select([["cancelled", "cancelled"], ["paid", "paid"]])) %>
+                <%= f.select(:status, options_for_select([[" ", " "], ["paid", "paid"], ["cancelled", "cancelled"]])) %>
               <% else %>
-                <%= f.select(:status, options_for_select([["cancelled", "cancelled"], ["completed", "completed"]])) %>
+                <%= f.select(:status, options_for_select([[" ", " "], ["completed", "completed"], ["cancelled", "cancelled"]])) %>
               <% end %>
             <% end %>
             <%= f.submit "Update", method: :put, class: "button round small"  %>
