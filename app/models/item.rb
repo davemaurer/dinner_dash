@@ -33,7 +33,6 @@ class Item < ActiveRecord::Base
       end
     end
     item = self.new(params)
-    item
   end
 
   def update_plus_categories(params)
@@ -44,5 +43,17 @@ class Item < ActiveRecord::Base
       end
     end
     self.update(params)
+  end
+
+  def price_to_s
+    unless valid_price_format?
+      self.price.to_s + "0"
+    else
+      self.price
+    end
+  end
+
+  def valid_price_format?
+    self.price.to_s.split(".").last.length == 2
   end
 end
