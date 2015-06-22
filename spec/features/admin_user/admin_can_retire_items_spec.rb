@@ -27,11 +27,11 @@ RSpec.feature "the admin can retire an item" do
       category
       admin
       user
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     end
   
-  scenario "and its status chances to 'retired'" do
+  scenario "and its status changes to 'retired'" do
     active
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     
     visit admin_items_path
     
@@ -46,5 +46,38 @@ RSpec.feature "the admin can retire an item" do
     click_button "Finished"
     
     expect(page).to have_content("This item has been retired")
+  end
+    
+  scenario "and it remains on the admin user items index view" do
+    active
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+    visit admin_items_path
+
+    expect(page).to have_content "Active Item"
+
+    first(:button, "Edit Item").click
+
+    expect(current_path).to eq(edit_admin_item_path(active))
+    expect(page).to have_content("Status")
+
+    select "retired", :from => "item[status]"
+    click_button "Finished"
+    
+    expect(current_path).to eq(admin_item_path(active))
+    
+    visit admin_items_path
+    
+    expect(page).to have_content("Active Item")
+  end
+  
+  scenario "and it disappears from the user items index view" do
+    active
+    retired
+    
+    visit items_path
+    
+    expect(page).to have_content("Active Item")
+    expect(page).not_to have_content("Retired Item")
   end
 end
