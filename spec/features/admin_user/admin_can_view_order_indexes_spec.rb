@@ -39,7 +39,7 @@ RSpec.feature "the admin can visit an order page" do
     DatabaseCleaner.strategy = :truncation
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
   end
-
+  
   after(:all) do
     DatabaseCleaner.clean
     Capybara.reset_sessions!
@@ -49,7 +49,7 @@ RSpec.feature "the admin can visit an order page" do
   scenario "and click to view an order show page" do
     visit admin_order_path(order1)
     
-    expect(page).to have_content("Order 10")
+    expect(page).to have_content("Order 1")
   end
   
   scenario "and sees the date and time the order was placed" do
