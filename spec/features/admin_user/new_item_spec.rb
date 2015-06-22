@@ -21,7 +21,6 @@ RSpec.feature "the admin can create new items", type: :feature do
     fill_in(:item_title, with: "babaganoush")
     fill_in("item_description", with: "eggplant mush with smokey hints")
     fill_in(:item_price, with: 9.95)
-    attach_file("item_image", "public/corn_dog.jpg")
     find(:xpath, "//input[@value='#{dessert.id}']").set(true)
 
     click_button "Finished"
@@ -35,7 +34,6 @@ RSpec.feature "the admin can create new items", type: :feature do
     fill_in(:item_title, with: "babaganoush")
     fill_in("item_description", with: "eggplant mush with smokey hints")
     fill_in(:item_price, with: 9.95)
-    attach_file("item_image", "public/corn_dog.jpg")
     find(:xpath, "//input[@value='#{dessert.id}']").set(true)
 
     click_button "Finished"
