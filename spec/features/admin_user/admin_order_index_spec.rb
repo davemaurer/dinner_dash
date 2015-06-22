@@ -67,10 +67,10 @@ RSpec.feature "the admin can visit the orders page" do
     visit admin_orders_path
 
     expect(page).to have_content "All Orders"
-    expect(page).to have_content "Order: 10"
-    expect(page).to have_content "Order: 11"
-    expect(page).to have_content "Order: 12"
-    expect(page).to have_content "Order: 13"
+    expect(page).to have_content "Order: 1"
+    expect(page).to have_content "Order: 2"
+    expect(page).to have_content "Order: 3"
+    expect(page).to have_content "Order: 4"
   end
 
   scenario "and see order counts by status" do
@@ -98,10 +98,10 @@ RSpec.feature "the admin can visit the orders page" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit admin_orders_path
-    click_link "Order: 18"
+    click_link "Order: 9"
     
     expect(current_path).to eq(admin_order_path(order1))
-    expect(page).to have_content("Order 18")
+    expect(page).to have_content("Order 9")
   end
 
   scenario "and udpate the status of an 'ordered' order to 'paid'" do
@@ -116,8 +116,8 @@ RSpec.feature "the admin can visit the orders page" do
     first(:button, "Update").click
 
     expect(current_path).to eq(admin_orders_path)
-    expect(page).to have_content("You have successfully updated order number 22's status")
-    expect(page).to have_content("Order: 22: paid")
+    expect(page).to have_content("You have successfully updated order number 13's status")
+    expect(page).to have_content("Order: 13: paid")
   end
 
   scenario "and udpate the status of an 'ordered' order to 'cancelled'" do
@@ -132,8 +132,8 @@ RSpec.feature "the admin can visit the orders page" do
     first(:button, "Update").click
 
     expect(current_path).to eq(admin_orders_path)
-    expect(page).to have_content("You have successfully updated order number 25's status")
-    expect(page).to have_content("Order: 25: cancelled")
+    expect(page).to have_content("You have successfully updated order number 16's status")
+    expect(page).to have_content("Order: 16: cancelled")
   end
 
   scenario "and udpate the status of a 'paid' order to 'completed'" do
@@ -148,8 +148,8 @@ RSpec.feature "the admin can visit the orders page" do
     first(:button, "Update").click
 
     expect(current_path).to eq(admin_orders_path)
-    expect(page).to have_content("You have successfully updated order number 28's status")
-    expect(page).to have_content("Order: 28: completed")
+    expect(page).to have_content("You have successfully updated order number 19's status")
+    expect(page).to have_content("Order: 19: completed")
   end
 
   scenario "and udpate the status of a 'paid' order to 'cancelled'" do
@@ -164,7 +164,7 @@ RSpec.feature "the admin can visit the orders page" do
     first(:button, "Update").click
 
     expect(current_path).to eq(admin_orders_path)
-    expect(page).to have_content("You have successfully updated order number 31's status")
-    expect(page).to have_content("Order: 31: cancelled")
+    expect(page).to have_content("You have successfully updated order number 22's status")
+    expect(page).to have_content("Order: 22: cancelled")
   end
 end
