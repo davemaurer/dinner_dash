@@ -4,7 +4,8 @@ class Item < ActiveRecord::Base
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :status, presence: true
 
-  has_attached_file :image, :default_url => "/Fat_unicorn.jpg"
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" },
+                            :default_url => "/Fat_unicorn.jpg"
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
   validate :has_category
