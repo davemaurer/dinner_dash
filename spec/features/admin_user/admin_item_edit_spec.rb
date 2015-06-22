@@ -30,6 +30,13 @@ RSpec.feature "admin can update an item", type: :feature do
 
     expect(page).to have_button("Edit Item")
   end
+
+  xscenario "change item name" do
+    visit admin_items_path
+
+    first(:button, "edit").click
+    fill_in
+  end
 end
 
 
