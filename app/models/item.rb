@@ -9,6 +9,7 @@ class Item < ActiveRecord::Base
       square: '200x200',
       medium: '300x300>'
     },
+    :default_url => "/Fat_unicorn.jpg",
     :storage => :s3,
     :bucket  => ENV['MY_BUCKET_NAME']
   
