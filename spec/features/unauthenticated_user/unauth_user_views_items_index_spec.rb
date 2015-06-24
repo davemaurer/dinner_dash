@@ -54,10 +54,9 @@ RSpec.feature "the unauthenticated user view", type: :feature do
       categories: [category])
 
     visit items_path
-    # within ".items2" do
+    
     Item.all.each do |item|
       expect(page).to have_content(item.title)
-      # end
     end
   end
 

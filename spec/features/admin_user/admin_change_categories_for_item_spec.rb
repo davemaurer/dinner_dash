@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "admin can update categories for an item", type: :feature do
+
   let(:dessert) { Category.create(name: "Dessert") }
   let(:seafood) { Category.create(name: "Seafood") }
   let(:curry)   { Category.create(name: "Curry") }

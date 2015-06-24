@@ -13,7 +13,7 @@
     <% slice.each do |item| %>
       <div class="large-3 columns">
         <p>
-          <%= image_tag item.image.url %>
+          <%= image_tag item.image.url(:medium) %>
           <%= link_to item.title, admin_item_path(item) %>: <%= number_to_currency(item.price, unit: "$") %><br>
           Item is "<%= item.status %>"
           <%= button_to "Edit Item", edit_admin_item_path(item), method: :get, class: "round button tiny" %>
