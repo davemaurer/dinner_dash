@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'sessions#new'
+  root to: 'admins#show'
   resource :admin, only: [:show, :edit, :update]
 
   namespace :admin do

@@ -4,7 +4,7 @@ RSpec.feature "admin can edit personal details", type: :feature do
   let(:jon) { User.create(full_name: "Jon Snow",
                           user_name: "Ghost",
                           email: "jon@thewall.com",
-                          password: "password",
+                          password: "old_password",
                           role: 1) }
 
   before(:each) do
@@ -26,7 +26,7 @@ RSpec.feature "admin can edit personal details", type: :feature do
       expect(page).to have_selector("input[value='Jon Snow']")
       expect(page).to have_selector("input[value='Ghost']")
       expect(page).to have_selector("input[value='jon@thewall.com']")
-      expect(page).to_not have_selector("input[value='password']")
+      expect(page).to_not have_selector("input[value='old_password']")
     end
   end
 
@@ -61,5 +61,18 @@ RSpec.feature "admin can edit personal details", type: :feature do
     click_button "Edit"
 
     expect(current_path).to eq("/admin")
+  end
+
+  xscenario "once the admin signs in, they can see their account details with an edit link" do
+    visit admin_path
+
+    within(".account_details") do
+      expect(page).to have_content "Jon Snow"
+      expect(page).to have_content "Ghost"
+      expect(page).to have_content("jon@thewall.com")
+      expect(page).to_not have_content("old_password")
+      expect(page).to_not have_content("role")
+      expect(page).to have_button("Edit")
+    end
   end
 end
