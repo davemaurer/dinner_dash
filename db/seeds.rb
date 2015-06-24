@@ -157,21 +157,25 @@ cyclops        = Item.create(title: "Cyclops Eyes",
 
 rachel = User.create(full_name: "Rachel Warbelow",
                      email: "demo+rachel@jumpstartlab.com",
-                     password: "password")
+                     password: "password",
+                     password_confirmation: "password")
 
 jeff   = User.create(full_name: "Jeff Casimir",
                      email: "demo+jeff@jumpstartlab.com",
                      password: "password",
+                     password_confirmation: "password",
                      user_name: "j3")
 
 jorge  = User.create(full_name: "Jorge Tellez",
                      email: "demo+jorge@jumpstartlab.com",
                      password: "password",
+                     password_confirmation: "password",
                      user_name: "novohispano")
 
 admin  = User.create(full_name: "Josh Cheek",
                      email: "demo+josh@jumpstartlab.com",
                      password: "password",
+                     password_confirmation: "password",
                      user_name: "josh",
                      role: 1)
 
