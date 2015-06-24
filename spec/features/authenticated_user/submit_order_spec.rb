@@ -1,6 +1,5 @@
 require "rails_helper"
 
-
 feature "an authenticated user" do
   before(:each) do
     category = Category.create(name: "dessert")
