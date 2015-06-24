@@ -1,43 +1,41 @@
 require 'rails_helper'
 
-RSpec.feature "the admin user" do
-  let(:valid_attributes) {
-     {full_name: "Admin Annie",
-      user_name: "admin",
-      password: "password",
-      role: 1,
-      email: "admin@admin.com"}
+RSpec.feature "the admin user dashboard" do
+  let(:admin) { User.create(full_name: "Admin Annie",
+                            user_name: "admin",
+                            password: "password",
+                            role: 1,
+                            email: "admin@admin.com") }
+
+  before(:each) {
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
   }
 
-  scenario "sees admin home page after logging in" do
-    admin = User.create(valid_attributes)
+  scenario "admin home page displays admin details" do
+    visit root_path
+    expect(page).to have_content("Welcome, #{admin.user_name}")
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-    visit admin_path
-
-    expect(current_path).to eq admin_path
-    expect(page).to have_content("Welcome to your administrator dashboard!")
+    within("table") do
+      expect(page).to have_content "Admin Annie"
+      expect(page).to have_content "admin"
+      expect(page).to have_content("admin@admin.com")
+      expect(page).to_not have_content("password")
+      expect(page).to_not have_content("role")
+    end
   end
 
-  xscenario "sees admin home page after logging in" do
-    admin = User.create(valid_attributes)
+  scenario "admin dashboard has edit link" do
+    visit root_path
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-
-    visit items_path
-    within ".left" do
-      first(:link).click
+    within("table") do
+      expect(page).to have_link("Edit")
     end
-    save_and_open_page
-    expect(current_path).to eq items_path
-    within ".left" do
-      first(:link).click
-    end
-    fill_in "email", with: "admin@admin.com"
-    fill_in "Password", with: "password"
-    click_button "Login"
+  end
 
-    expect(current_path).to eq admin_path
-    expect(page).to have_content("Welcome, Admin")
+  scenario "admin edit link redirects to admin edit page" do
+    visit root_path
+    click_link("Edit")
+
+    expect(current_path).to eq(edit_admin_path(admin))
   end
 end

@@ -6,6 +6,7 @@ RSpec.describe User, type: :model do
     { full_name: "Stan The Man",
       user_name: "Theman",
       password: "password",
+      password_confirmation: "password",
       role: 0,
       email: "stan@stan.com" }
     }
@@ -20,6 +21,7 @@ RSpec.describe User, type: :model do
     user = User.new(full_name: nil,
                     user_name: "Theman",
                     password: "password",
+                    password_confirmation: "password",
                     role: 0,
                     email: "stan@stan.com")
 
@@ -30,6 +32,7 @@ RSpec.describe User, type: :model do
     user = User.new(full_name: "Stan The Man",
                     user_name: "T",
                     password: "password",
+                    password_confirmation: "password",
                     role: 0,
                     email: "stan@stan.com")
 
@@ -40,6 +43,7 @@ RSpec.describe User, type: :model do
     user = User.new(full_name: "Stan The Man",
                     user_name: "Thisissuperlongbecuasewearetryingtoma",
                     password: "password",
+                    password_confirmation: "password",
                     role: 0,
                     email: "stan@stan.com")
 
@@ -60,6 +64,7 @@ RSpec.describe User, type: :model do
     user = User.new(full_name: "Stan The Man",
                     user_name: "Theman",
                     password: "password",
+                    password_confirmation: "password",
                     email: "stan@stan.com")
 
     expect(user.role).to eq('default')
@@ -70,6 +75,7 @@ RSpec.describe User, type: :model do
       user_name: "Theman",
       password: "password",
       email: "stan@stan.com",
+      password_confirmation: "password",
       role: 1)
 
     expect(user.role).to eq('admin')
@@ -79,6 +85,7 @@ RSpec.describe User, type: :model do
     user = User.new(full_name: "Stan The Man",
                     user_name: "Theman",
                     password: "password",
+                    password_confirmation: "password",
                     role: 0,
                     email: nil)
 
@@ -96,6 +103,7 @@ RSpec.describe User, type: :model do
     user = User.new(full_name: "Stan The Man",
                     user_name: "Theman",
                     password: "password",
+                    password_confirmation: "password",
                     role: 0,
                     email: "blah")
 
@@ -105,6 +113,7 @@ RSpec.describe User, type: :model do
   it "is valid even if the user doesn't enter a user_name" do
     user = User.new(full_name: "Rachel Warbelow",
       password: "password",
+      password_confirmation: "password",
       email: "demo+rachel@jumpstartlab.com")
 
     expect(user).to be_valid

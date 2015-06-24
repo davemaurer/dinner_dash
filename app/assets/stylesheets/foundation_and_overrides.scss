@@ -1516,8 +1516,24 @@ body li{
   display:inline-block;
 }
 
-.image-show {
-  // max-width:550px;
+table {
+  margin:auto;
+}
+
+table .account_details {
+  display: inline-block;
+  margin: 0;
+  padding: auto;
+}
+
+table li .account_details {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.admin_buttons {
+  display: inline-block;
+  margin: 20px 40px 20px 40px;
 }
 
 .container{

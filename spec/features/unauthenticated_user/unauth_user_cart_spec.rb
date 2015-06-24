@@ -111,4 +111,15 @@ feature "an unauthenticated user" do
 
     expect(page).to have_content("Unicorn Roll")
   end
+
+  scenario "can decrease the quantity of an item in his/her cart" do
+    visit items_path
+    first(:button, "Add To Cart").click
+    within ".right" do
+      find(:link).click
+    end
+    click_button "-1"
+
+    expect(page).to_not have_content("Unicorn Roll ($8.00) x 1")
+  end
 end

@@ -5,6 +5,7 @@ RSpec.feature "the authenticated user" do
     { full_name: "Stan The Man",
       user_name: "Theman",
       password: "password",
+      password_confirmation: "password",
       role: 0,
       email: "stan@stan.com" }
   }
