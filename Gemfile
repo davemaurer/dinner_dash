@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'foundation-rails'
 gem 'pry'
 gem 'paperclip'
+gem 'aws-sdk'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -25,6 +26,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+group :test do
+  gem 'database_cleaner'
+end
 
 group :development, :test do
   gem 'rspec-rails'

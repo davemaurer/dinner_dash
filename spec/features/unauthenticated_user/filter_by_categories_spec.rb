@@ -5,7 +5,7 @@ RSpec.feature "filtering items by category", type: :feature do
     visit items_path
 
     within ".filter" do
-      expect(page).to have_content("Choose your food quest:")
+      expect(page).to have_content("Choose your fare:")
     end
   end
 

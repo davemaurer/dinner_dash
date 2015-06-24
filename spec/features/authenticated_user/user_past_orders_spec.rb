@@ -16,7 +16,7 @@ RSpec.feature "the authenticated user's past orders", type: :feature do
                            password: "password")
 
     order    = Order.create(status: "ordered",
-                            total_price: "100",
+                            total_price: 8,
                             user_id: jamie.id,
                             items: [unicorn])
 
