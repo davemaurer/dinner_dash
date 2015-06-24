@@ -16,14 +16,14 @@ RSpec.feature "admin can edit personal details", type: :feature do
   scenario "admin edit page displays admin's details" do
     visit edit_admin_path(jon)
 
-    within("h1") do
+    within(".edit-form") do
       expect(page).to have_content("Edit Details")
     end
   end
 
   scenario "admin edit page displays admin details" do
     visit edit_admin_path(jon)
-    within(".edit_form") do
+    within(".edit-form") do
       expect(page).to have_selector("input[value='Jon Snow']")
       expect(page).to have_selector("input[value='Ghost']")
       expect(page).to have_selector("input[value='jon@thewall.com']")

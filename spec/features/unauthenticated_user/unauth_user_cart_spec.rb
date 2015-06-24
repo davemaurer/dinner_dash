@@ -115,7 +115,7 @@ feature "an unauthenticated user" do
   scenario "can decrease the quantity of an item in his/her cart" do
     visit items_path
     first(:button, "Add To Cart").click
-    within ".right" do
+    within ".top-bar-section" do
       find(:link).click
     end
     click_button "-1"
