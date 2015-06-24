@@ -16,7 +16,7 @@ RSpec.feature "the admin user" do
     visit admin_path
 
     expect(current_path).to eq admin_path
-    expect(page).to have_content("Welcome, Admin")
+    expect(page).to have_content("Welcome to your administrator dashboard!")
   end
 
   xscenario "sees admin home page after logging in" do

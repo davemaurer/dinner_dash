@@ -4,22 +4,12 @@ class Item < ActiveRecord::Base
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :status, presence: true
 
-  has_attached_file :image, styles: {
-      thumb: '100x100>',
-      square: '200x200',
-      medium: '300x300>'
-    },
-    :default_url => "/Fat_unicorn.jpg",
-    :storage => :s3,
-    :bucket  => ENV['MY_BUCKET_NAME']
-  
-
   # Validate the attached image is image/jpg, image/png, etc
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  # validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
-  # has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" },
-  #                           :default_url => "/Fat_unicorn.jpg"
-  # validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" },
+                            :default_url => "/Fat_unicorn.jpg"
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
   validate :has_category
 

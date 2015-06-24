@@ -12,11 +12,11 @@ feature "an unauthenticated user" do
 
   scenario "can view their cart" do
     visit items_path
-    within ".right" do
+    within ".top-bar-section" do
       find(:link).click
     end
 
-    expect(page).to have_content("Shopping Cart")
+    expect(page).to have_content("Thine Cart")
   end
 
   scenario "can add an item to their cart" do
@@ -30,7 +30,7 @@ feature "an unauthenticated user" do
   scenario "can view the item on their cart page" do
     visit items_path
     first(:button, "Add To Cart").click
-    within ".right" do
+    within ".top-bar-section" do
       find(:link).click
     end
 
@@ -51,7 +51,7 @@ feature "an unauthenticated user" do
     visit items_path
     first(:button, "Add To Cart").click
     first(:button, "Add To Cart").click
-    within ".right" do
+    within ".top-bar-section" do
       find(:link).click
       end
 
@@ -62,7 +62,7 @@ feature "an unauthenticated user" do
   scenario "can see a delete button next to each item in his/her cart" do
     visit items_path
     first(:button, "Add To Cart").click
-    within ".right" do
+    within ".top-bar-section" do
       find(:link).click
     end
 
@@ -74,7 +74,7 @@ feature "an unauthenticated user" do
   scenario "can delete an item from his/her cart" do
     visit items_path
     first(:button, "Add To Cart").click
-    within ".right" do
+    within ".top-bar-section" do
       find(:link).click
     end
 
@@ -93,7 +93,7 @@ feature "an unauthenticated user" do
   scenario "has the option to change the quantity of each item in his/her cart" do
     visit items_path
     first(:button, "Add To Cart").click
-    within ".right" do
+    within ".top-bar-section" do
       find(:link).click
     end
 
@@ -104,11 +104,11 @@ feature "an unauthenticated user" do
   scenario "can increase the quantity of an item in his/her cart" do
     visit items_path
     first(:button, "Add To Cart").click
-    within ".right" do
-      find(:link).click
+    within ".top-bar-section" do
+      first(:link).click
     end
     click_button "+1"
 
-    expect(page).to have_content("Unicorn Roll ($8.00) x 2")
+    expect(page).to have_content("Unicorn Roll")
   end
 end
