@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "the admin user" do
+RSpec.feature "the admin user dashboard" do
   let(:admin) { User.create(full_name: "Admin Annie",
                             user_name: "admin",
                             password: "password",
@@ -15,13 +15,21 @@ RSpec.feature "the admin user" do
     visit root_path
     expect(page).to have_content("Welcome, #{admin.user_name}")
 
-    within(".account_details") do
-      expect(page).to have_content "Jon Snow"
-      expect(page).to have_content "Ghost"
-      expect(page).to have_content("jon@thewall.com")
-      expect(page).to_not have_content("old_password")
+    within("table") do
+      expect(page).to have_content "Admin Annie"
+      expect(page).to have_content "admin"
+      expect(page).to have_content("admin@admin.com")
+      expect(page).to_not have_content("password")
       expect(page).to_not have_content("role")
-      # expect(page).to have_button("Edit")
     end
   end
+
+  scenario "admin dashboard has edit button" do
+    visit root_path
+
+    within("table") do
+      expect(page).to have_link("Edit")
+    end
+  end
+
 end
