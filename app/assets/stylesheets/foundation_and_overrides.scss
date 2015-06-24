@@ -1498,3 +1498,12 @@ $include-html-global-classes: $include-html-classes;
 .image-show {
   // max-width:550px;
 }
+
+table {
+  margin:auto;
+}
+
+.admin_buttons {
+  display: inline-block;
+  margin: 20px 40px 20px 40px;
+}
