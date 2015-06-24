@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def load_cart
     @cart = Cart.new(session[:cart])
   end
-  
+
   helper_method :current_user, :current_admin?, :require_user
 
   def current_user

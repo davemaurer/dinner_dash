@@ -7,10 +7,12 @@ RSpec.feature "the admin can visit the orders page" do
   let(:admin)  {User.create(full_name: "Admin",
     email: "admin@admin.com",
     password: "password",
+    password_confirmation: "password",
     role: 1)}
   let(:user)   {User.create(full_name: "User",
     email: "user@user.com",
     password: "password",
+    password_confirmation: "password",
     role: 0)}
 
   let(:item1)   {Item.create(title: "Item 1",
@@ -21,7 +23,7 @@ RSpec.feature "the admin can visit the orders page" do
     description: "I'm active!",
     price: 9.99,
     categories: [category])}
-  
+
   let(:order1)  {Order.create(items: [item1],
                               user_id: user.id,
                               total_price: item1.price)}
@@ -45,11 +47,11 @@ RSpec.feature "the admin can visit the orders page" do
     item1
     item2
   end
-  
+
   before(:each) do
     DatabaseCleaner.strategy = :truncation
   end
-  
+
   after(:all) do
     DatabaseCleaner.clean
     Capybara.reset_sessions!
@@ -61,7 +63,7 @@ RSpec.feature "the admin can visit the orders page" do
     order2
     order3
     order4
-    
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit admin_orders_path
@@ -78,7 +80,7 @@ RSpec.feature "the admin can visit the orders page" do
     order2
     order3
     order4
-    
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit admin_orders_path
@@ -94,12 +96,12 @@ RSpec.feature "the admin can visit the orders page" do
     order2
     order3
     order4
-    
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit admin_orders_path
     click_link "Order: 9"
-    
+
     expect(current_path).to eq(admin_order_path(order1))
     expect(page).to have_content("Order 9")
   end
@@ -108,7 +110,7 @@ RSpec.feature "the admin can visit the orders page" do
     order1
     order3
     order4
-    
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit admin_orders_path

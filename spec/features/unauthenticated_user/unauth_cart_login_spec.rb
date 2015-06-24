@@ -10,7 +10,7 @@ RSpec.feature "the unauthenticated user", type: :feature do
   scenario "is prompted to login if he/she hasn't done so at checkout" do
     visit items_path
     first(:button, "Add To Cart").click
-    within ".right" do
+    within ".top-bar-section" do
       find(:link).click
     end
 
@@ -26,11 +26,12 @@ RSpec.feature "the unauthenticated user", type: :feature do
     User.create(full_name: "John Doe",
                 user_name: "john",
                 email: "john@john.com",
-                password: "password")
+                password: "password",
+                password_confirmation: "password")
 
     visit items_path
     first(:button, "Add To Cart").click
-    within ".right" do
+    within ".top-bar-section" do
       find(:link).click
     end
 
@@ -52,11 +53,12 @@ RSpec.feature "the unauthenticated user", type: :feature do
     User.create(full_name: "John Doe",
       user_name: "john",
       email: "john@john.com",
-      password: "password")
+      password: "password",
+      password_confirmation: "password")
 
     visit items_path
     first(:button, "Add To Cart").click
-    within ".right" do
+    within ".top-bar-section" do
       find(:link).click
     end
 

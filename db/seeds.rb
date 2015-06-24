@@ -37,7 +37,7 @@ phoenix        = Item.create(title: "Phoenix Spicy Curry",
                              image: File.open('public/PhoenixSpicyCurry.jpg'))
 
 titan          = Item.create(title: "Titan Burger",
-                             description: "So big and powerful it'll descend upon your tastebuds in an epic clash",
+                             description: "So big and powerful it'll descend upon your tastebuds for an epic clash",
                              price: 9.25,
                              status: "active",
                              categories: [meat_cat, entree_cat],
@@ -72,7 +72,7 @@ griffin_wings  = Item.create(title: "Buffalo Griffin Wings",
                              image: File.open('public/BuffaloGriffinWings.jpg'))
 
 pegasus_wings  = Item.create(title: "Buffalo Pegasus Wings",
-                             description: "One little bit will set your tastebuds aflight",
+                             description: "One little bite will set your tastebuds aflight",
                              price: 6.00,
                              status: "retired",
                              categories: [meat_cat, appetizer_cat],
