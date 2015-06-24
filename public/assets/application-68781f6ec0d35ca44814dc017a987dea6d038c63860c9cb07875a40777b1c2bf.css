@@ -9439,14 +9439,381 @@ th.hide-for-touch {
     display: none !important;
   }
 }
-/* line 1491, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+@font-face {
+  font-family: 'SketchGothic';
+  src: url("fonts/sketch_gothic_school.ttf");
+  src: local("SketchGothic"), local("Gothic"), url("fonts/sketch_gothic_school.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'Cardinal';
+  src: url("fonts/Cardinal.ttf");
+  src: local("Cardinal"), local("Cardinal"), url("fonts/Cardinal.ttf") format("truetype");
+}
+/* line 1502, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+body {
+  background: #5c5c5c;
+  color: #FFFFFF;
+}
+
+/* line 1507, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+body li {
+  background: #7D2E00;
+}
+
+/* line 1511, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
 .centered-text {
   text-align: center;
 }
 
-/* line 1495, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+/* line 1515, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
 .quantity {
   display: inline-block;
+}
+
+/* line 1519, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+table {
+  margin: auto;
+}
+
+/* line 1523, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+table .account_details {
+  display: inline-block;
+  margin: 0;
+  padding: auto;
+}
+
+/* line 1529, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+table li .account_details {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* line 1534, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.admin_buttons {
+  display: inline-block;
+  margin: 20px 40px 20px 40px;
+}
+
+/* line 1539, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.container {
+  height: 200px;
+  background-color: #5c5c5c;
+}
+
+/* line 1544, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.container .title {
+  color: #FFFFFF;
+  margin-top: 30px;
+  font-size: 96px;
+  font-family: 'SketchGothic', Arial, sans-serif;
+}
+
+/* line 1555, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.section ul li {
+  border: 5px solid red;
+  background: black;
+  display: inline-block;
+}
+
+/* line 1566, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.top-bar a {
+  margin: 0px 20px;
+}
+
+/* line 1570, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.top-bar ul li {
+  background-color: #5c5c5c;
+}
+
+/* line 1574, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.right {
+  background-color: #2a2a2a;
+}
+
+/* line 1578, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.left {
+  background-color: #2a2a2a;
+}
+
+/* line 1582, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.padder {
+  height: 500px;
+  background: url(/assets/feast_hall_dressed_table_-5e9cfc562a19a0911f30e68995ac4da3e099e115e10bf16b1283295fbbb9811f.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* line 1589, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.ta {
+  background-color: #70857E;
+}
+
+/* line 1593, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.filter {
+  margin-top: 50px;
+  color: #FFFFFF;
+  font-family: 'SketchGothic', Arial, sans-serif;
+  font-size: 72px;
+}
+
+/* line 1601, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.dropdown {
+  margin-bottom: 50px;
+}
+
+/* line 1605, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.row-items {
+  max-width: 1000px;
+}
+
+/* line 1609, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.items {
+  border: 1px solid red;
+  margin: 10px auto;
+}
+
+/* line 1614, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.item-image {
+  border: 1px solid red;
+  text-align: center;
+}
+
+/* line 1619, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.item-show-image {
+  border: 1px solid red;
+  text-align: center;
+}
+
+/* line 1624, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.item-title {
+  border: 1px solid red;
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 58px;
+}
+
+/* line 1632, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.item-title a {
+  color: white;
+  font-size: 24px;
+}
+
+/* line 1637, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.item-price {
+  border: 1px solid red;
+  text-align: center;
+  font-size: 24px;
+  margin: 10px auto;
+  font-family: 'Cardinal', Arial, sans-serif;
+}
+
+/* line 1645, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.item-show-price {
+  border: 1px solid red;
+  text-align: center;
+  font-size: 52px;
+  margin: 20px 0 10px 0;
+  font-family: 'Cardinal', Arial, sans-serif;
+}
+
+/* line 1653, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.item-description {
+  border: 1px solid red;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  margin-top: 10px;
+  padding: 0px 5px;
+  background: black;
+  opacity: 0.4;
+}
+
+/* line 1663, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.item-show-description {
+  border: 1px solid red;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 48px;
+  margin: 10px 0;
+  padding: 0px 5px;
+}
+
+/* line 1671, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.item-categories {
+  border: 1px solid red;
+  text-align: center;
+  font-size: 40px;
+  margin: 10px auto;
+  font-family: 'Cardinal', Arial, sans-serif;
+}
+
+/* line 1679, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.back-link {
+  border: 1px solid red;
+  text-align: center;
+  font-size: 40px;
+  margin: 10px auto;
+  font-family: 'Cardinal', Arial, sans-serif;
+}
+
+/* line 1687, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.add-to-cart {
+  border: 1px solid red;
+  text-align: center;
+  padding-top: 20px;
+  background: black;
+  opacity: 0.4;
+}
+
+/* line 1695, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.large-3.columns {
+  padding-top: 10px;
+  background: #5c5c5c;
+  border: 1px solid red;
+}
+
+/* line 1701, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.login-title {
+  border: 1px solid red;
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 58px;
+  color: white;
+}
+
+/* line 1710, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.form {
+  border: 1px solid red;
+  margin-top: 30px;
+  color: white;
+}
+
+/* line 1716, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.cart h1 {
+  border: 1px solid red;
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'SketchGothic', Arial, sans-serif;
+  font-size: 58px;
+  color: white;
+}
+
+/* line 1725, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.cart-item-total {
+  border: 1px solid red;
+  text-align: center;
+  font-size: 24px;
+  margin: 20px 0 10px 0;
+  font-family: 'Cardinal', Arial, sans-serif;
+}
+
+/* line 1733, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.cart-buttons {
+  border: 1px solid red;
+}
+
+/* line 1737, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+h1.orders {
+  border: 1px solid red;
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'SketchGothic', Arial, sans-serif;
+  font-size: 58px;
+  color: white;
+}
+
+/* line 1746, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+table.orders {
+  border: 1px solid red;
+  margin: auto;
+}
+
+/* line 1751, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.order-title h1 {
+  border: 1px solid red;
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'SketchGothic', Arial, sans-serif;
+  font-size: 58px;
+  color: white;
+}
+
+/* line 1760, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.order-title p {
+  border: 1px solid red;
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 36px;
+  color: white;
+}
+
+/* line 1769, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.order-total-price {
+  border: 1px solid red;
+  text-align: center;
+  margin: 10px auto;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+/* line 1778, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.order-status {
+  border: 1px solid red;
+  text-align: center;
+  margin: 10px auto;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+/* line 1787, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.order-submitted {
+  border: 1px solid red;
+  text-align: center;
+  margin: 10px auto;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+/* line 1796, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.order-updated {
+  border: 1px solid red;
+  text-align: center;
+  margin: 10px auto;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+/* line 1805, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.order-details {
+  border: 1px solid red;
+  background-color: #6E2602;
+}
+
+/* line 1810, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.items-from-order {
+  margin-top: 20px;
+  border: 1px solid red;
+}
+
+/* line 1815, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.order-item {
+  border: 1px solid red;
+  background: black;
+  margin: 20px auto;
+}
+
+/* line 1821, /Users/davidmaurer/rails/dinner_dash/app/assets/stylesheets/foundation_and_overrides.scss */
+.order-item-title {
+  border: 1px solid red;
+  text-align: center;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  margin-top: 10px;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
