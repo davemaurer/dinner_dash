@@ -13,7 +13,8 @@ RSpec.feature "the authenticated user can logout", type: :feature do
     jamie    = User.create(full_name: "Jamie Lannister",
                            user_name: "LannisterGold",
                            email: "jamie@casterlyrock.com",
-                           password: "password")
+                           password: "password",
+                           password_confirmation: "password")
 
     order    = Order.create(status: "ordered",
                             total_price: "100",
@@ -49,17 +50,5 @@ RSpec.feature "the authenticated user can logout", type: :feature do
     click_link "Logout"
 
     expect(current_path).to eq(items_path)
-  end
-
-  xscenario "after clicking 'Logout', 'Logout' button is replaced with 'Login'" do
-    visit orders_path
-
-    within(".left") do
-      first(:link).click
-    end
-
-    within(".left") do
-      expect(page).to have_content("Login")
-    end
   end
 end
