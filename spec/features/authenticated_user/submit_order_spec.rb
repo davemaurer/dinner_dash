@@ -12,7 +12,8 @@ feature "an authenticated user" do
     User.create(full_name: "John Doe",
                 user_name: "john",
                 email: "john@john.com",
-                password: "password")
+                password: "password",
+                password_confirmation: "password")
   end
 
   scenario "can submit an order" do
