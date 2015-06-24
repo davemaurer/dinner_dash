@@ -24,7 +24,7 @@ RSpec.feature "the admin user dashboard" do
     end
   end
 
-  scenario "admin dashboard has edit button" do
+  scenario "admin dashboard has edit link" do
     visit root_path
 
     within("table") do
@@ -32,4 +32,10 @@ RSpec.feature "the admin user dashboard" do
     end
   end
 
+  scenario "admin edit link redirects to admin edit page" do
+    visit root_path
+    click_link("Edit")
+
+    expect(current_path).to eq(edit_admin_path(admin))
+  end
 end
