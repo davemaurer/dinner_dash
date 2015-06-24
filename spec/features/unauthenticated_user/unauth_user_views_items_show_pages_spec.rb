@@ -32,7 +32,7 @@ feature "an unauthenticated user" do
   scenario "can click back to return to the items index page" do
     visit items_path
     click_link "Unicorn Pie"
-    click_link "<< Back"
+    click_link "<< Return ye to the feast!"
 
     expect(current_path).to eq(items_path)
     expect(page).to have_link("Unicorn Pie")

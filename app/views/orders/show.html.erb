@@ -1,20 +1,46 @@
 
 <div class="row">
   <div class="large-12 columns centered-text">
-    <br>
-    <h1>Your Order:</h1>
-    <br>
-    <h3>Customer Name: <%= @order.user.full_name %></h3><br>
+    <div class="order-title">
+      <h1>Thine Order:</h1>
+      <p><%= @order.user.full_name %></p>
+    </div>
 
-    <% @order.items.uniq.each do |item| %>
-      <li><%= link_to "#{item.title}", item_path(item) %>: <%= number_to_currency(item.price, unit: "$") %> x <%= @order.quantity(item) %>.....<%= (number_to_currency((item.price * @order.quantity(item)), unit: "$")) %></li>
-    <% end %>
-    <br>
-    <h3>Order Total: $<%= @order.total_price %></h3><br>
-    <h3>Order Status: <%= @order.status %></h3><br>
-    <h3>Order Submitted: <%= @order.created_at.strftime("%I:%M%p on %m/%d/%Y") %></h3><br>
-    <% if @order.status == "completed" || @order.status == "cancelled" %>
-      <h3>Order Status Updated to "<%= @order.status %>": <%= @order.updated_at.strftime("%I:%M%p on %m/%d/%Y") %></h3>
-    <% end %>
+    <div class="order-details">
+      <div class="order-total-price">
+        Order Total: $<%= @order.total_price %>
+      </div>
+      <div class="order-status">
+        Order Status: <%= @order.status %>
+      </div>
+      <div class="order-submitted">
+        Order Submitted: <%= @order.created_at.strftime("%I:%M%p on %m/%d/%Y") %>
+      </div>
+      <div class="order-updated">
+        <% if @order.status == "completed" || @order.status == "cancelled" %>
+          Order Status Updated to "<%= @order.status %>": <%= @order.updated_at.strftime("%I:%M%p on %m/%d/%Y") %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="order-title">
+      <h1>Thine Items Ordered:</h1>
+    </div>
+    
+    <div class="items-from-order">
+      <% @order.items.uniq.each do |item| %>
+        <div class="order-item">
+          <div class="order-item-title">
+            <%= link_to "#{item.title}", item_path(item) %>
+          </div>
+          <div class="item-price">
+            <%= number_to_currency(item.price, unit: "$") %> x qty (<%= @order.quantity(item) %>)
+          </div>
+          <div class="cart-item-total">
+            <%= (number_to_currency((item.price * @order.quantity(item)), unit: "$")) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

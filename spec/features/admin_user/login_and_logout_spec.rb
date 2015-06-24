@@ -12,8 +12,8 @@ RSpec.feature "the admin user" do
   scenario "sees admin home page after logging in" do
     visit "/"
 
-    within(".left") do
-      first(:link).click
+    within(".top-bar-section") do
+      click_link "Login"
     end
 
     expect(current_path).to eq(login_path)

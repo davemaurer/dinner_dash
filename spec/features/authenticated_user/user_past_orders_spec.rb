@@ -27,13 +27,13 @@ RSpec.feature "the authenticated user's past orders", type: :feature do
   scenario "authenticated user always has a 'Past Orders' button" do
     visit items_path
 
-    within(".right") do
+    within(".top-bar-section") do
       expect(page).to have_content("Past Orders")
     end
 
     visit cart_path
 
-    within(".right") do
+    within(".top-bar-section") do
       expect(page).to have_content("Past Orders")
     end
   end
@@ -45,7 +45,7 @@ RSpec.feature "the authenticated user's past orders", type: :feature do
     expect(current_path).to eq(orders_path)
 
     within first(".orders") do
-      expect(page).to have_content("Your Past Orders")
+      expect(page).to have_content("Past Orders")
     end
   end
 

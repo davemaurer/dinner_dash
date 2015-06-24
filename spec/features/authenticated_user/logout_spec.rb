@@ -27,20 +27,20 @@ RSpec.feature "the authenticated user can logout", type: :feature do
   scenario "once logged in, user has a 'Logout' button" do
     visit items_path
 
-    within(".left") do
+    within(".top-bar-section") do
       expect(page).to have_link("Logout")
     end
 
     visit orders_path
 
-    within(".left") do
+    within(".top-bar-section") do
       expect(page).to have_link("Logout")
     end
 
     item = Item.find_by(title: "Unicorn Pie")
     visit item_path(item)
 
-    within(".left") do
+    within(".top-bar-section") do
       expect(page).to have_link("Logout")
     end
   end
