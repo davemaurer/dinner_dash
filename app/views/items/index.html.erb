@@ -11,7 +11,6 @@
     </div>
   </div>
 </div>
-  
 
 <% @items.each_slice(4) do |slice| %>
   <div class="row items">
@@ -32,7 +31,6 @@
         <div class="add-to-cart">
           <%= button_to "Add To Cart", cart_path(item_id: item.id), class: "round button tiny" %>
         </div>
-        </p>
       </div>
     <% end %>
   </div>
