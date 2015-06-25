@@ -10,6 +10,7 @@ gem 'foundation-rails'
 gem 'pry'
 gem 'paperclip'
 # gem 'aws-sdk', '< 2.0'
+gem 'skylight'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

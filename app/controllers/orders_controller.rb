@@ -10,10 +10,14 @@ class OrdersController < ApplicationController
     @order = Order.new(total_price: total_price,
                        user_id: session[:user_id],
                        items: @items)
-    @order.save!
-    @cart.reset
-    flash[:notice] = "Thank you for your order, #{@order.user.full_name}!"
-    redirect_to @order
+    if @order.save
+      @cart.reset
+      flash[:notice] = "Thank you for your order, #{@order.user.full_name}!"
+      redirect_to @order
+    else
+      flash[:notice] = "You must have at least one item in your cart to proceed! Add some below."
+      redirect_to items_path
+    end
   end
 
   def show
@@ -23,7 +27,7 @@ class OrdersController < ApplicationController
       render file: "/public/404"
     end
   end
-  
+
   def index
     @orders = Order.by_user(current_user.id)
   end

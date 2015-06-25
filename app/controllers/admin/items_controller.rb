@@ -2,7 +2,7 @@ class Admin::ItemsController < Admin::BaseController
   before_action :set_item, only: [:show, :edit, :update]
 
   def index
-    @items = Item.all
+    @items = Item.all_alphabetized
   end
 
   def new

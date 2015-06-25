@@ -25,16 +25,13 @@ class Item < ActiveRecord::Base
   has_many :order_items
   has_many :orders, through: :order_items
 
-  scope :active_items, -> { where(status: "active") }
+  scope :active_alphabetized, -> { where(status: "active").sort_by(&:title) }
+  scope :all_alphabetized, -> { all.sort_by(&:title) }
 
   def has_category
     if categories.to_a.count < 1
       errors.add(:categories, "item must have at least one category")
     end
-  end
-
-  def quantity
-    order_items.where(item_id: self.id).count
   end
 
   def self.new_plus_categories(params)

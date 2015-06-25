@@ -1,16 +1,24 @@
 <div class="row">
   <div class="large-12 large-centered columns">
-    <h1 class="centered-text">All Orders</h1>
+    <h1 class="centered-text orders-welcome">
+      All Orders
+    </h1>
   </div>
 </div>
 
 <div class="row">
-  <div class="large-12 columns centered-text">
-    <p>
-      Status "Ordered": <%= @orders.ordered.count %><br>
-      Status "Paid": <%= @orders.paid.count %><br>
-      Status "Cancelled": <%= @orders.cancelled.count %><br>
-      Status "Completed": <%= @orders.completed.count %><br>
+  <div class="large-12 columns centered-text order">
+    <p class="order-status">
+      "Ordered": <%= @ordered %>
+    </p>
+    <p class="order-status">
+      "Paid": <%= @cancelled %>
+    </p>
+    <p class="order-status">
+      "Cancelled": <%= @cancelled %>
+    </p>
+    <p class="order-status">
+      "Completed": <%= @completed %>
     </p>
   </div>
 </div>
@@ -28,25 +36,30 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="large-12 columns centered-text">
-    <% @orders.each do |order| %>
-      <ul>
-        <li class="order">
-          <%= link_to "Order: #{order.id}", admin_order_path(order) %>: <%= order.status %><br>
-          <%= form_for([:admin, order]) do |f| %>
-            <%= f.label "Update Order Status" %>
-            <% if order.status == "ordered" || order.status == "paid" %>
-              <% if order.status == "ordered" %>
-                <%= f.select(:status, options_for_select([[" ", " "], ["paid", "paid"], ["cancelled", "cancelled"]])) %>
-              <% else %>
-                <%= f.select(:status, options_for_select([[" ", " "], ["completed", "completed"], ["cancelled", "cancelled"]])) %>
-              <% end %>
+<% @orders.each do |order| %>
+  <div class="row">
+    <div class="large-12 columns centered-text">
+      <div class="order-name">
+          <%= link_to "Order: #{order.id}", admin_order_path(order) %>
+      </div>
+      <div class="order-status">
+        <%= order.status %>
+      </div>
+      <div class="order-status-dropdown">
+        <%= form_for([:admin, order]) do |f| %>
+          <%= f.label "Update Order Status" %>
+          <% if order.status == "ordered" || order.status == "paid" %>
+            <% if order.status == "ordered" %>
+              <%= f.select(:status, options_for_select([[" ", " "], ["paid", "paid"], ["cancelled", "cancelled"]])) %>
+            <% else %>
+              <%= f.select(:status, options_for_select([[" ", " "], ["completed", "completed"], ["cancelled", "cancelled"]])) %>
             <% end %>
-            <%= f.submit "Update", method: :put, class: "button round small"  %>
           <% end %>
-        </li>
-      </ul>
-    <% end %>
+          <%= f.submit "Update", method: :put, class: "button round small"  %>
+        <% end %>
+      </div>
+    </div>
   </div>
+<% end %>
+</div>
 </div>

@@ -8,6 +8,10 @@ class Admin::OrdersController < Admin::BaseController
       @dropdown = params[:status]
     end
     @statuses = ["all", "ordered", "paid", "cancelled", "completed"]
+    @ordered = Order.ordered
+    @paid = Order.paid
+    @cancelled = Order.cancelled
+    @completed = Order.completed
   end
 
   def show
