@@ -21,7 +21,7 @@ RSpec.feature "the unauthenticated user view", type: :feature do
 
     visit items_path
 
-    within ".large-3" do
+    within ".item-title" do
       expect(page).to have_content("Unicorn Roll")
     end
   end

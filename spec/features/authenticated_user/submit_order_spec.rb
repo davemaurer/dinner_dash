@@ -17,8 +17,8 @@ feature "an authenticated user" do
 
   scenario "can submit an order" do
     visit items_path
-    first(:button, "Add To Cart").click
-    within ".top-bar-section" do
+    click_link "Add To Cart"
+    within ".right" do
       first(:link).click
     end
 
@@ -42,8 +42,8 @@ feature "an authenticated user" do
 
   scenario "can see their order details on the order confirmation page" do
     visit items_path
-    first(:button, "Add To Cart").click
-    within ".top-bar-section" do
+    click_link "Add To Cart"
+    within ".right" do
       first(:link).click
     end
     click_button "Checkout"
@@ -52,7 +52,7 @@ feature "an authenticated user" do
     click_button "Login"
     click_button "Checkout"
 
-    expect(page).to have_content("Thine Order:")
+    expect(page).to have_content("Thy Order:")
     expect(page).to have_content("John Doe")
     expect(page).to have_link("Unicorn Pie")
     expect(page).to have_content("Order Total: $8.0")
@@ -62,8 +62,8 @@ feature "an authenticated user" do
 
   scenario "can click to a particular item's show page from his/her order confirmation page" do
     visit items_path
-    first(:button, "Add To Cart").click
-    within ".top-bar-section" do
+    click_link "Add To Cart"
+    within ".right" do
       first(:link).click
     end
     click_button "Checkout"
