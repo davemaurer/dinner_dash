@@ -1489,13 +1489,13 @@ $include-html-global-classes: $include-html-classes;
 
 @font-face {
   font-family: 'SketchGothic';
-  src: url('fonts/sketch_gothic_school.ttf');
+  src: font-url('fonts/sketch_gothic_school.ttf');
   src: local('SketchGothic'), local('Gothic'), url('fonts/sketch_gothic_school.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Cardinal';
-  src: url('fonts/Cardinal.ttf');
+  src: font-url('fonts/Cardinal.ttf');
   src: local('Cardinal'), local('Cardinal'), url('fonts/Cardinal.ttf') format('truetype');
 }
 
@@ -1572,22 +1572,22 @@ table li .account_details {
 }
 
 .right {
-  background-color: #2a2a2a;
+  background-color: #5c5c5c;
 }
 
 .left {
-  background-color: #2a2a2a;
+  background-color: #5c5c5c;
 }
 
 .padder {
   height: 500px;
-  background: url("feast_hall_dressed_table_.jpg");
+  background: image-url("feast_hall_dressed_table_.jpg");
   background-size: cover;
   background-attachment: fixed;
 }
 
 .ta{
-  background-color: #70857E;
+  background-color: #5c5c5c;
 }
 
 .filter {
@@ -1824,4 +1824,22 @@ table.orders{
   font-family: 'Cardinal', Arial, sans-serif;
   font-size: 24px;
   margin-top: 10px;
+}
+
+h1.admin-welcome {
+  border: 1px solid red;
+  text-align: center;
+  margin: 50px 0px 10px 0px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 56px;
+  color: white;
+}
+
+h2.admin-welcome {
+  border: 1px solid red;
+  text-align: center;
+  margin: 50px 0px 10px 0px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 56px;
+  color: white;
 }
