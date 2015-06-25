@@ -28,7 +28,7 @@
     </div>
 
     <div class="items-from-order">
-      <% @order.items.uniq.each do |item| %>
+      <% @order.uniq_items.each do |item| %>
         <div class="order-item">
           <div class="order-item-title">
             <%= link_to "#{item.title}", item_path(item) %>

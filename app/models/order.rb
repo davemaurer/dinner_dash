@@ -7,7 +7,7 @@ class Order < ActiveRecord::Base
   scope :ordered, -> { where(status: "ordered") }
   scope :paid, -> { where(status: "paid") }
   scope :cancelled, -> { where(status: "cancelled") }
-  scope :completed, -> { where(status: "completed")}
+  scope :completed, -> { where(status: "completed") }
 
   validates :status,
     presence: true,
@@ -55,5 +55,9 @@ class Order < ActiveRecord::Base
 
   def self.by_user(user_id)
     where(user_id: user_id)
+  end
+
+  def uniq_items
+    items.uniq
   end
 end
