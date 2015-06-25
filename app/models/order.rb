@@ -4,10 +4,10 @@ class Order < ActiveRecord::Base
   has_many :order_items
   has_many :items, through: :order_items
 
-  scope :ordered, -> { where(status: "ordered") }
-  scope :paid, -> { where(status: "paid") }
-  scope :cancelled, -> { where(status: "cancelled") }
-  scope :completed, -> { where(status: "completed") }
+  scope :ordered, -> { where(status: "ordered").count }
+  scope :paid, -> { where(status: "paid").count }
+  scope :cancelled, -> { where(status: "cancelled").count }
+  scope :completed, -> { where(status: "completed").count }
 
   validates :status,
     presence: true,

@@ -7,18 +7,12 @@
 </div>
 
 <div class="row">
-  <div class="large-12 columns centered-text order">
-    <p class="order-status">
-      "Ordered": <%= @orders.ordered.count %>
-    </p>
-    <p class="order-status">
-      "Paid": <%= @orders.paid.count %>
-    </p>
-    <p class="order-status">
-      "Cancelled": <%= @orders.cancelled.count %>
-    </p>
-    <p class="order-status">
-      "Completed": <%= @orders.completed.count %>
+  <div class="large-12 columns centered-text">
+    <p>
+      Status "Ordered": <%= @ordered %><br>
+      Status "Paid": <%= @paid %><br>
+      Status "Cancelled": <%= @cancelled %><br>
+      Status "Completed": <%= @completed %><br>
     </p>
   </div>
 </div>
