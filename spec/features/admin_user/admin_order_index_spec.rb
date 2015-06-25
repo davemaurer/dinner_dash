@@ -85,10 +85,10 @@ RSpec.feature "the admin can visit the orders page" do
 
     visit admin_orders_path
 
-    expect(page).to have_content("Status \"Ordered\": 1")
-    expect(page).to have_content("Status \"Paid\": 1")
-    expect(page).to have_content("Status \"Cancelled\": 1")
-    expect(page).to have_content("Status \"Completed\": 1")
+    expect(page).to have_content("\"Ordered\": 1")
+    expect(page).to have_content("\"Paid\": 1")
+    expect(page).to have_content("\"Cancelled\": 1")
+    expect(page).to have_content("\"Completed\": 1")
   end
 
   scenario "and click links to each order" do
@@ -119,7 +119,7 @@ RSpec.feature "the admin can visit the orders page" do
 
     expect(current_path).to eq(admin_orders_path)
     expect(page).to have_content("You have successfully updated order number 13's status")
-    expect(page).to have_content("Order: 13: paid")
+    expect(page).to have_content("Order: 13 paid")
   end
 
   scenario "and udpate the status of an 'ordered' order to 'cancelled'" do
@@ -135,7 +135,7 @@ RSpec.feature "the admin can visit the orders page" do
 
     expect(current_path).to eq(admin_orders_path)
     expect(page).to have_content("You have successfully updated order number 16's status")
-    expect(page).to have_content("Order: 16: cancelled")
+    expect(page).to have_content("Order: 16 cancelled")
   end
 
   scenario "and udpate the status of a 'paid' order to 'completed'" do
@@ -151,7 +151,7 @@ RSpec.feature "the admin can visit the orders page" do
 
     expect(current_path).to eq(admin_orders_path)
     expect(page).to have_content("You have successfully updated order number 19's status")
-    expect(page).to have_content("Order: 19: completed")
+    expect(page).to have_content("Order: 19 completed")
   end
 
   scenario "and udpate the status of a 'paid' order to 'cancelled'" do
@@ -167,6 +167,6 @@ RSpec.feature "the admin can visit the orders page" do
 
     expect(current_path).to eq(admin_orders_path)
     expect(page).to have_content("You have successfully updated order number 22's status")
-    expect(page).to have_content("Order: 22: cancelled")
+    expect(page).to have_content("Order: 22 cancelled")
   end
 end

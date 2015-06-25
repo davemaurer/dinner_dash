@@ -53,7 +53,7 @@ RSpec.feature "the authenticated user's past orders", type: :feature do
     visit orders_path
 
     within("table") do
-      expect(page).to have_content(Order.first.created_at.to_s)
+      expect(page).to have_content(Order.first.created_at.strftime("%I:%M%p on %m/%d/%Y"))
     end
   end
 
@@ -61,7 +61,7 @@ RSpec.feature "the authenticated user's past orders", type: :feature do
     order = Order.first
 
     visit orders_path
-    click_link order.created_at.to_s
+    click_link order.created_at.strftime("%I:%M%p on %m/%d/%Y")
     expect(current_path).to eq(order_path(order.id))
   end
 end

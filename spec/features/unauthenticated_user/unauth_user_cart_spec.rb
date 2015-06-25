@@ -12,16 +12,16 @@ feature "an unauthenticated user" do
 
   scenario "can view their cart" do
     visit items_path
-    within ".top-bar-section" do
+    within ".right" do
       find(:link).click
     end
 
-    expect(page).to have_content("Thine Cart")
+    expect(page).to have_content("Thy Cart")
   end
 
   scenario "can add an item to their cart" do
     visit items_path
-    first(:button, "Add To Cart").click
+    first(:link, "Add To Cart").click
 
     expect(current_path).to eq(items_path)
     expect(page).to have_content("(1)")
@@ -29,8 +29,8 @@ feature "an unauthenticated user" do
 
   scenario "can view the item on their cart page" do
     visit items_path
-    first(:button, "Add To Cart").click
-    within ".top-bar-section" do
+    first(:link, "Add To Cart").click
+    within ".right" do
       find(:link).click
     end
 
@@ -40,8 +40,8 @@ feature "an unauthenticated user" do
 
   scenario "can add more than one item to their cart" do
     visit items_path
-    first(:button, "Add To Cart").click
-    first(:button, "Add To Cart").click
+    first(:link, "Add To Cart").click
+    first(:link, "Add To Cart").click
 
     expect(current_path).to eq(items_path)
     expect(page).to have_content("(2)")
@@ -49,9 +49,9 @@ feature "an unauthenticated user" do
 
   scenario "the line-1item price of the item will change based on the quantity" do
     visit items_path
-    first(:button, "Add To Cart").click
-    first(:button, "Add To Cart").click
-    within ".top-bar-section" do
+    first(:link, "Add To Cart").click
+    first(:link, "Add To Cart").click
+    within ".right" do
       find(:link).click
       end
 
@@ -61,8 +61,8 @@ feature "an unauthenticated user" do
 
   scenario "can see a delete button next to each item in his/her cart" do
     visit items_path
-    first(:button, "Add To Cart").click
-    within ".top-bar-section" do
+    first(:link, "Add To Cart").click
+    within ".right" do
       find(:link).click
     end
 
@@ -73,8 +73,8 @@ feature "an unauthenticated user" do
 
   scenario "can delete an item from his/her cart" do
     visit items_path
-    first(:button, "Add To Cart").click
-    within ".top-bar-section" do
+    first(:link, "Add To Cart").click
+    within ".right" do
       find(:link).click
     end
 
@@ -92,8 +92,8 @@ feature "an unauthenticated user" do
 
   scenario "has the option to change the quantity of each item in his/her cart" do
     visit items_path
-    first(:button, "Add To Cart").click
-    within ".top-bar-section" do
+    first(:link, "Add To Cart").click
+    within ".right" do
       find(:link).click
     end
 
@@ -103,8 +103,8 @@ feature "an unauthenticated user" do
 
   scenario "can increase the quantity of an item in his/her cart" do
     visit items_path
-    first(:button, "Add To Cart").click
-    within ".top-bar-section" do
+    first(:link, "Add To Cart").click
+    within ".right" do
       first(:link).click
     end
     click_button "+1"
@@ -114,8 +114,8 @@ feature "an unauthenticated user" do
 
   scenario "can decrease the quantity of an item in his/her cart" do
     visit items_path
-    first(:button, "Add To Cart").click
-    within ".top-bar-section" do
+    first(:link, "Add To Cart").click
+    within ".right" do
       find(:link).click
     end
     click_button "-1"
