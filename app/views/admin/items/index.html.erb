@@ -1,29 +1,51 @@
 <div class="row">
   <div class="large-12 large-centered columns">
-    <h1 class="centered-text" style="color:white">Your Menu Items:</h1>
+    <h1 class="centered-text admin-menu">Thy Menu</h1>
   </div>
 </div>
 
-<div class="large-12 centered-text ">
-  <%= button_to "Add New Item", new_admin_item_path, method: :get, class: "round button large" %>
+<div class="large-12 centered-text add-new-item">
+  <%= link_to "Add New Item", new_admin_item_path %>
 </div>
 
-<% @items.each_slice(4) do |slice| %>
-  <div class="row items">
-    <% slice.each do |item| %>
-      <div class="large-3 columns">
-        <p>
-          <%= image_tag item.image.url(:medium) %>
-          <%= link_to item.title, admin_item_path(item) %>: <%= number_to_currency(item.price, unit: "$") %><br>
-          Item is "<%= item.status %>"<br>
-          <%= item.description %>
-          <%= button_to "Edit Item", edit_admin_item_path(item), method: :get, class: "round button tiny" %>
-        </p>
-      </div>
+<div class="centered-text items">
+  <% @items.each_slice(4) do |slice| %>
+    <table>
+      <tr class="item-title">
+        <% slice.each do |item| %>
+          <td><%= link_to item.title, item_path(item) unless item.id.nil? %></td>
+        <% end %>
+      </tr>
+
+      <tr class="item-status">
+        <% slice.each do |item| %>
+          <td>Status: <%= item.status %></td>
+        <% end %>
+      </tr>
+
+      <tr class="item-price">
+        <% slice.each do |item| %>
+            <td><%= number_to_currency(item.price, unit: "$") %></td>
+        <% end %>
+      </tr>
+
+      <tr class="item-image">
+        <% slice.each do |item| %>
+            <td><%= image_tag item.image.url %></td>
+        <% end %>
+      </tr>
+
+      <tr class="item-description">
+        <% slice.each do |item| %>
+            <td><p><%= item.description %><p></td>
+        <% end %>
+      </tr>
+
+      <tr class="add-to-cart">
+        <% slice.each do |item| %>
+          <td><%= link_to "Edit", edit_admin_item_path(item) unless item.id.nil? %></td>
+        <% end %>
+      </tr>
+    </table>
   <% end %>
-  </div>
-<% end %>
-
-<div class="large-12 centered-text ">
-  <%= button_to "Add New Item", new_admin_item_path, method: :get, class: "round button large" %>
 </div>

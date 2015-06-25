@@ -3,6 +3,11 @@ class Admin::ItemsController < Admin::BaseController
 
   def index
     @items = Item.all_alphabetized
+    unless @items.count % 4 == 0
+      until @items.count % 4 == 0
+        @items << Item.new
+      end
+    end
   end
 
   def new

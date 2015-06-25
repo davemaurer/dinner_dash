@@ -1504,8 +1504,14 @@ body {
   color: #FFFFFF;
 }
 
+a {
+  font-family: 'Cardinal', Arial, sans-serif;
+  color: white;
+}
+
 .centered-text{
   text-align:center;
+  color: white;
 }
 
 .quantity{
@@ -1600,8 +1606,9 @@ table li .account_details {
 // start non-admin items menu
 .items table {
   background-color: #202020;
-  margin-top: 50px;
-  border: 1px solid #303030;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border: 5px solid #202020;
 }
 
 .items td {
@@ -1610,16 +1617,11 @@ table li .account_details {
   font-family: 'Cardinal', Arial, sans-serif;
   text-align: center;
   width: 275px;
-  // border-left: 1px solid #202020;
 }
 
 .item-title td {
   font-size: 30px;
   height: 50px;
-}
-
-.item-title a {
-  color: white;
 }
 
 .item-price td{
@@ -1628,30 +1630,46 @@ table li .account_details {
 }
 
 .item-description p{
-  height: 65px;
+  height: 60px;
   font-size: 23px;
 }
 
-.add-to-cart td{
+.add-to-cart a{
+  padding: 10px;
   border: 5px outset gray;
+  font-size: 15px;
+}
+// end non-admin items menu
+// start admin items menu
+.admin-menu {
+  margin-bottom: 30px;
+  font-family: 'SketchGothic', Arial, sans-serif;
+  font-size: 72px;
 }
 
-.add-to-cart a {
+.item-status td {
+  font-size: 20px;
+}
+
+.add-new-item a {
+  padding: 10px;
+  border: 5px outset gray;
+  background-color: #202020;
+  font-size: 20px;
+}
+// end admin items menu
+
+.item-show-image {
+  border: 1px solid red;
+  text-align: center;
+}
+
+.item-show-price {
+  text-align: center;
+  font-size: 52px;
+  margin: 20px 0 10px 0;
   font-family: 'Cardinal', Arial, sans-serif;
-  color: white;
 }
-  // end non-admin items menu
-  .item-show-image {
-    border: 1px solid red;
-    text-align:center;
-  }
-
-  .item-show-price {
-    text-align: center;
-    font-size: 52px;
-    margin: 20px 0 10px 0;
-    font-family: 'Cardinal', Arial, sans-serif;
-  }
 
 .item-description {
   font-family: 'Cardinal', Arial, sans-serif;
@@ -1660,8 +1678,8 @@ table li .account_details {
   padding: 0px 5px;
   background: black;
   opacity: 0.4;
-  }
-  
+}
+
 .item-show-description {
   font-family: 'Cardinal', Arial, sans-serif;
   font-size: 48px;
@@ -1669,19 +1687,19 @@ table li .account_details {
   padding: 0px 5px;
 }
 
-  .item-categories {
-    text-align: center;
-    font-size: 40px;
-    margin: 10px auto;
-    font-family: 'Cardinal', Arial, sans-serif;
-  }
+.item-categories {
+  text-align: center;
+  font-size: 40px;
+  margin: 10px auto;
+  font-family: 'Cardinal', Arial, sans-serif;
+}
 
-  .back-link {
-    text-align: center;
-    font-size: 40px;
-    margin: 10px auto;
-    font-family: 'Cardinal', Arial, sans-serif;
-  }
+.back-link {
+  text-align: center;
+  font-size: 40px;
+  margin: 10px auto;
+  font-family: 'Cardinal', Arial, sans-serif;
+}
 
 . add-to-cart {
   text-align: center;
@@ -1695,238 +1713,238 @@ table li .account_details {
   background: #5c5c5c;
 }
 
-  .login-title {
-    text-align: center;
-    margin-top: 50px;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 58px;
-    color: white;
-  }
-
-  .form {
-    margin-top: 30px;
-    color: white;
-  }
-
-  .cart h1 {
-    text-align: center;
-    margin-top: 50px;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 58px;
-    color: white;
-  }
-
-  .cart-item-total {
-    text-align: center;
-    font-size: 24px;
-    margin: 20px 0 10px 0;
-    font-family: 'Cardinal', Arial, sans-serif;
-  }
-
-  .cart-buttons {
-  }
-
-  h1.orders {
-    text-align: center;
-    margin-top: 50px;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 58px;
-    color: white;
-  }
-
-  table.orders {
-    margin: auto;
-  }
-
-  .order-title h1 {
-    text-align: center;
-    margin-top: 50px;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 58px;
-    color: white;
-  }
-
-  .order-title p {
-    text-align: center;
-    margin-top: 50px;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 36px;
-    color: white;
-  }
-
-  .order-total-price {
-    text-align: center;
-    margin: 10px auto;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 24px;
-    color: white;
-  }
-
-  .order-status {
-    text-align: center;
-    margin: 10px auto;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 24px;
-    color: white;
-  }
-
-  .order-submitted {
-    text-align: center;
-    margin: 10px auto;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 24px;
-    color: white;
-  }
-
-  .order-updated {
-    text-align: center;
-    margin: 10px auto;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 24px;
-    color: white;
-  }
-
-  .items-from-order {
-    margin-top: 20px;
-  }
-
-  .order-item {
-    background: black;
-    margin: 20px auto;
-  }
-
-  .order-item-title {
-    text-align: center;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 24px;
-    margin-top: 10px;
-  }
-
-  h1.admin-welcome {
-    text-align: center;
-    margin: 50px 0px 10px 0px;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 56px;
-    color: white;
-  }
-
-  .admin-welcome {
-    text-align: center;
-    margin: 20px 0px 10px 0px;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 40px;
-    color: white;
-  }
-
-  .label[for="full_name"] {
-    color: white;
-  }
-
-  .orders-welcome {
-    text-align: center;
-    margin: 50px 0px 10px 0px;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 40px;
-    color: white;
-  }
-
-  .order-status {
-    display: inline-block;
-    margin: auto 20px;
-  }
-
-  .order {
-    display: inline-block;
-  }
-
-  .category-title {
-    text-align: center;
-    margin: 50px 0px 10px 0px;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 40px;
-    color: white;
-  }
-
-  .category-form {
-    padding: auto;
-    margin: auto;
-    text-align: center;
-  }
-
-  .categories-list {
-    margin-top: 10px;
-    text-align: center;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 24px;
-    color: white;
-  }
-
-  .order-global {
-    margin: 20px auto;
-  }
-
-  .order-name {
-  }
-
-  .order-status {
-  }
-
-  .order-status-dropdown {
-    width: 200px;
-    display: inline-block;
-    text-align: center;
-  }
-
-  .form-label {
-    margin-top: 10px;
-    text-align: center;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 24px;
-    color: white;
-  }
-
-  .image-submit {
-    text-align: center;
-  }
-
-  .flash-notice {
-    text-align: center;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 24px;
-    color: white;
-  }
-
-  .order-id {
-    text-align: center;
-    margin: 50px 0px 10px 0px;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 40px;
-    color: white;
-  }
-
-  .order-deets {
-    text-align: center;
-    margin: 10px 0px 10px 0px;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 40px;
-    color: white;
-  }
-
-  .order-indivs {
-    text-align: center;
-    margin: 0 auto;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 20px;
-  }
-
-  .order-quantity {
-    margin-bottom: 25px;
-  }
-
-  .order-back-link {
-    text-align: center;
-    margin-bottom: 20px;
-    font-family: 'Cardinal', Arial, sans-serif;
-    font-size: 20px;
-  }
+.login-title {
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 58px;
+  color: white;
 }
+
+.form {
+  margin-top: 30px;
+  color: white;
+}
+
+.cart h1 {
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 58px;
+  color: white;
+}
+
+.cart-item-total {
+  text-align: center;
+  font-size: 24px;
+  margin: 20px 0 10px 0;
+  font-family: 'Cardinal', Arial, sans-serif;
+}
+
+.cart-buttons {
+}
+
+h1.orders {
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 58px;
+  color: white;
+}
+
+table.orders {
+  margin: auto;
+}
+
+.order-title h1 {
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 58px;
+  color: white;
+}
+
+.order-title p {
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 36px;
+  color: white;
+}
+
+.order-total-price {
+  text-align: center;
+  margin: 10px auto;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+.order-status {
+  text-align: center;
+  margin: 10px auto;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+.order-submitted {
+  text-align: center;
+  margin: 10px auto;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+.order-updated {
+  text-align: center;
+  margin: 10px auto;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+.items-from-order {
+  margin-top: 20px;
+}
+
+.order-item {
+  background: black;
+  margin: 20px auto;
+}
+
+.order-item-title {
+  text-align: center;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+h1.admin-welcome {
+  text-align: center;
+  margin: 50px 0px 10px 0px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 56px;
+  color: white;
+}
+
+.admin-welcome {
+  text-align: center;
+  margin: 20px 0px 10px 0px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 40px;
+  color: white;
+}
+
+.label[for="full_name"] {
+  color: white;
+}
+
+.orders-welcome {
+  text-align: center;
+  margin: 50px 0px 10px 0px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 40px;
+  color: white;
+}
+
+.order-status {
+  display: inline-block;
+  margin: auto 20px;
+}
+
+.order {
+  display: inline-block;
+}
+
+.category-title {
+  text-align: center;
+  margin: 50px 0px 10px 0px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 40px;
+  color: white;
+}
+
+.category-form {
+  padding: auto;
+  margin: auto;
+  text-align: center;
+}
+
+.categories-list {
+  margin-top: 10px;
+  text-align: center;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+.order-global {
+  margin: 20px auto;
+}
+
+.order-name {
+}
+
+.order-status {
+}
+
+.order-status-dropdown {
+  width: 200px;
+  display: inline-block;
+  text-align: center;
+}
+
+.form-label {
+  margin-top: 10px;
+  text-align: center;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+.image-submit {
+  text-align: center;
+}
+
+.flash-notice {
+  text-align: center;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+.order-id {
+  text-align: center;
+  margin: 50px 0px 10px 0px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 40px;
+  color: white;
+}
+
+.order-deets {
+  text-align: center;
+  margin: 10px 0px 10px 0px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 40px;
+  color: white;
+}
+
+.order-indivs {
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 20px;
+}
+
+.order-quantity {
+  margin-bottom: 25px;
+}
+
+.order-back-link {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 20px;
+}
+
