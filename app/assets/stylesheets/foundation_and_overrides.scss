@@ -1500,7 +1500,7 @@ $include-html-global-classes: $include-html-classes;
 }
 
 body {
-  background: #5c5c5c;
+  background: #202020;
   color: #FFFFFF;
 }
 
@@ -1517,7 +1517,7 @@ body li{
 }
 
 table {
-  margin:auto;
+  margin: auto;
 }
 
 table .account_details {
@@ -1557,7 +1557,6 @@ table li .account_details {
   background: black;
   display: inline-block;
 }
-
 
 .top-bar {
 //  border: 5px solid red;
@@ -1602,44 +1601,52 @@ table li .account_details {
   margin-bottom: 50px;
 }
 
-.row-items {
-  max-width: 1000px;
-}
-
-.items {
-  border: 1px solid red;
-  margin: 10px auto;
-}
-
-.item-image {
-  border: 1px solid red;
-  text-align: center;
-}
-
-.item-show-image {
-  border: 1px solid red;
-  text-align: center;
-}
-
-.item-title {
-  border: 1px solid red;
-  text-align: center;
+// start non-admin items menu
+.items table {
+  background-color: #303030;
   margin-top: 50px;
+  border: 1px solid #303030;
+}
+
+.items td {
+  background-color: #303030;
+  color: white;
   font-family: 'Cardinal', Arial, sans-serif;
-  font-size: 58px;
+  text-align: center;
+  width: 275px;
+}
+
+.item-title td {
+  font-size: 30px;
+  height: 50px;
 }
 
 .item-title a {
   color: white;
-  font-size: 24px;
 }
 
-.item-price {
+.item-price td{
+  font-size: 23px;
+  height: 40px;
+}
+
+.item-description p{
+  height: 65px;
+  font-size: 23px;
+}
+
+.add-to-cart td{
+  border: 5px outset gray;
+}
+
+.add-to-cart a{
+  font-family: 'Cardinal', Arial, sans-serif;
+  color: white;
+}
+// end non-admin items menu
+.item-show-image {
   border: 1px solid red;
   text-align: center;
-  font-size: 24px;
-  margin: 10px auto;
-  font-family: 'Cardinal', Arial, sans-serif;
 }
 
 .item-show-price {
@@ -1650,15 +1657,6 @@ table li .account_details {
   font-family: 'Cardinal', Arial, sans-serif;
 }
 
-.item-description {
-  border: 1px solid red;
-  font-family: 'Cardinal', Arial, sans-serif;
-  font-size: 24px;
-  margin-top: 10px;
-  padding: 0px 5px;
-  background: black;
-  opacity: 0.4;
-}
 
 .item-show-description {
   border: 1px solid red;
@@ -1684,13 +1682,6 @@ table li .account_details {
   font-family: 'Cardinal', Arial, sans-serif;
 }
 
-.add-to-cart {
-  border: 1px solid red;
-  text-align: center;
-  padding-top: 20px;
-  background: black;
-  opacity: 0.4;
-}
 
 .large-3.columns {
   padding-top: 10px;
