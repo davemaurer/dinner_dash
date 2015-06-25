@@ -8,7 +8,7 @@
 
     <%= f.label "price", class: "form-label" %>
     <% unless @item.price.nil? %>
-      <%= f.text_field "price_to_s" %><br>
+      <%= f.text_field("price", value: @item.price_to_s) %><br>
     <% else %>
       <%= f.text_field "price" %><br>
     <% end %>

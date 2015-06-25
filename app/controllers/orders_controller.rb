@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
       render file: "/public/404"
     end
   end
-  
+
   def index
     @orders = Order.by_user(current_user.id)
   end
