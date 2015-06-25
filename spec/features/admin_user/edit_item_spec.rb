@@ -29,7 +29,7 @@ RSpec.feature "the admin can create new items", type: :feature do
 
     fill_in("item_title", with: "babaganoush")
     fill_in("item_description", with: "eggplant mush with smokey hints")
-    fill_in(:item_price_to_s, with: 9.95)
+    fill_in(:item_price, with: 9.95)
 
     click_button "Finished"
 
@@ -44,7 +44,7 @@ RSpec.feature "the admin can create new items", type: :feature do
 
     fill_in("item_title", with: "babaganoush")
     fill_in("item_description", with: "eggplant mush with smokey hints")
-    fill_in(:item_price_to_s, with: 9.95)
+    fill_in(:item_price, with: 9.95)
 
     click_button "Finished"
 
