@@ -7,10 +7,10 @@
 <div class="row">
   <div class="large-12 columns centered-text">
     <p>
-      Status "Ordered": <%= @orders.ordered.count %><br>
-      Status "Paid": <%= @orders.paid.count %><br>
-      Status "Cancelled": <%= @orders.cancelled.count %><br>
-      Status "Completed": <%= @orders.completed.count %><br>
+      Status "Ordered": <%= Order.ordered %><br>
+      Status "Paid": <%= Order.paid %><br>
+      Status "Cancelled": <%= Order.cancelled %><br>
+      Status "Completed": <%= Order.completed %><br>
     </p>
   </div>
 </div>
