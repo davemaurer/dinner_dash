@@ -13,14 +13,11 @@
       <% end %>
       
       <% @cart.item_quantities.each do |k, v| %>
-        <div class="item-title">
-          <%= k.title %>
-        </div>
-        <div class="item-price">
-          <%= number_to_currency(k.price, unit: "$") %> x qty (<%= v %>)
+        <div class="cart-item-title">
+          <%= k.title %>: <%= number_to_currency(k.price, unit: "$") %> x qty (<%= v %>)
         </div>
         <div class="cart-item-total">
-          <%= number_to_currency(k.price * v, unit: "$") %>
+          Subtotal: <%= number_to_currency(k.price * v, unit: "$") %>
         </div>
         <div class="cart-buttons">
         <%= button_to "-1", cart_path(item_id: k.id), method: :delete, class: "button round tiny quantity" %>
