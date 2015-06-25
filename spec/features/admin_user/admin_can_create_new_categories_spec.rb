@@ -37,8 +37,10 @@ RSpec.feature "the admin can create new categories", type: :feature do
   scenario "categories index lists all categories" do
     visit admin_categories_path
 
-    Category.all.each do |category|
-      expect(page).to have_content(category.name)
+    within(".categories-list") do
+      Category.all.each do |category|
+        expect(page).to have_content(category.name)
+      end
     end
   end
 
@@ -49,6 +51,8 @@ RSpec.feature "the admin can create new categories", type: :feature do
     click_button("Create Category")
 
     expect(current_path).to eq(admin_categories_path)
-    expect(page).to have_content("Tea Cakes")
+    within(".categories-list") do
+      expect(page).to have_content("Tea Cakes")
+    end
   end
 end
