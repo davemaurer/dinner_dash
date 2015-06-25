@@ -7,12 +7,18 @@
 </div>
 
 <div class="row">
-  <div class="large-12 columns centered-text">
-    <p>
-      Status "Ordered": <%= @ordered %><br>
-      Status "Paid": <%= @paid %><br>
-      Status "Cancelled": <%= @cancelled %><br>
-      Status "Completed": <%= @completed %><br>
+  <div class="large-12 columns centered-text order">
+    <p class="order-status">
+      "Ordered": <%= @ordered %>
+    </p>
+    <p class="order-status">
+      "Paid": <%= @cancelled %>
+    </p>
+    <p class="order-status">
+      "Cancelled": <%= @cancelled %>
+    </p>
+    <p class="order-status">
+      "Completed": <%= @completed %>
     </p>
   </div>
 </div>
