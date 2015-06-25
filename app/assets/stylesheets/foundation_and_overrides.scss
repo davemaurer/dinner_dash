@@ -1550,12 +1550,7 @@ table li .account_details {
   font-family: 'SketchGothic', Arial, sans-serif;
 }
 
-.section {
-//  border: 5px solid red;
-}
-
 .section ul li {
-  border: 5px solid red;
   background: black;
   display: inline-block;
 }
@@ -1645,7 +1640,6 @@ table li .account_details {
   font-size: 15px;
 }
 // end non-admin items menu
-
 // start admin items menu
 .admin-menu {
   margin-bottom: 30px;
@@ -1671,15 +1665,22 @@ table li .account_details {
 }
 
 .item-show-price {
-  border: 1px solid red;
   text-align: center;
   font-size: 52px;
   margin: 20px 0 10px 0;
   font-family: 'Cardinal', Arial, sans-serif;
 }
 
+.item-description {
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  margin-top: 10px;
+  padding: 0px 5px;
+  background: black;
+  opacity: 0.4;
+}
+
 .item-show-description {
-  border: 1px solid red;
   font-family: 'Cardinal', Arial, sans-serif;
   font-size: 48px;
   margin: 10px 0;
@@ -1687,7 +1688,6 @@ table li .account_details {
 }
 
 .item-categories {
-  border: 1px solid red;
   text-align: center;
   font-size: 40px;
   margin: 10px auto;
@@ -1695,22 +1695,25 @@ table li .account_details {
 }
 
 .back-link {
-  border: 1px solid red;
   text-align: center;
   font-size: 40px;
   margin: 10px auto;
   font-family: 'Cardinal', Arial, sans-serif;
 }
 
+. add-to-cart {
+  text-align: center;
+  padding-top: 20px;
+  background: black;
+  opacity: 0.4;
+} 
 
-.large-3.columns {
+. large-3 . columns {
   padding-top: 10px;
   background: #5c5c5c;
-  border: 1px solid red;
 }
 
 .login-title {
-  border: 1px solid red;
   text-align: center;
   margin-top: 50px;
   font-family: 'Cardinal', Arial, sans-serif;
@@ -1719,13 +1722,11 @@ table li .account_details {
 }
 
 .form {
-  border: 1px solid red;
   margin-top: 30px;
   color: white;
 }
 
 .cart h1 {
-  border: 1px solid red;
   text-align: center;
   margin-top: 50px;
   font-family: 'Cardinal', Arial, sans-serif;
@@ -1734,7 +1735,6 @@ table li .account_details {
 }
 
 .cart-item-total {
-  border: 1px solid red;
   text-align: center;
   font-size: 24px;
   margin: 20px 0 10px 0;
@@ -1742,11 +1742,9 @@ table li .account_details {
 }
 
 .cart-buttons {
-  border: 1px solid red;
 }
 
 h1.orders {
-  border: 1px solid red;
   text-align: center;
   margin-top: 50px;
   font-family: 'Cardinal', Arial, sans-serif;
@@ -1754,13 +1752,11 @@ h1.orders {
   color: white;
 }
 
-table.orders{
-  border: 1px solid red;
+table.orders {
   margin: auto;
 }
 
 .order-title h1 {
-  border: 1px solid red;
   text-align: center;
   margin-top: 50px;
   font-family: 'Cardinal', Arial, sans-serif;
@@ -1769,7 +1765,6 @@ table.orders{
 }
 
 .order-title p {
-  border: 1px solid red;
   text-align: center;
   margin-top: 50px;
   font-family: 'Cardinal', Arial, sans-serif;
@@ -1778,7 +1773,6 @@ table.orders{
 }
 
 .order-total-price {
-  border: 1px solid red;
   text-align: center;
   margin: 10px auto;
   font-family: 'Cardinal', Arial, sans-serif;
@@ -1787,7 +1781,6 @@ table.orders{
 }
 
 .order-status {
-  border: 1px solid red;
   text-align: center;
   margin: 10px auto;
   font-family: 'Cardinal', Arial, sans-serif;
@@ -1796,7 +1789,6 @@ table.orders{
 }
 
 .order-submitted {
-  border: 1px solid red;
   text-align: center;
   margin: 10px auto;
   font-family: 'Cardinal', Arial, sans-serif;
@@ -1805,7 +1797,6 @@ table.orders{
 }
 
 .order-updated {
-  border: 1px solid red;
   text-align: center;
   margin: 10px auto;
   font-family: 'Cardinal', Arial, sans-serif;
@@ -1813,24 +1804,16 @@ table.orders{
   color: white;
 }
 
-.order-details {
-  border: 1px solid red;
-  background-color: #6E2602;
-}
-
 .items-from-order {
   margin-top: 20px;
-  border: 1px solid red;
 }
 
 .order-item {
-  border: 1px solid red;
   background: black;
   margin: 20px auto;
 }
 
 .order-item-title {
-  border: 1px solid red;
   text-align: center;
   font-family: 'Cardinal', Arial, sans-serif;
   font-size: 24px;
@@ -1838,7 +1821,6 @@ table.orders{
 }
 
 h1.admin-welcome {
-  border: 1px solid red;
   text-align: center;
   margin: 50px 0px 10px 0px;
   font-family: 'Cardinal', Arial, sans-serif;
@@ -1847,7 +1829,6 @@ h1.admin-welcome {
 }
 
 .admin-welcome {
-  border: 1px solid red;
   text-align: center;
   margin: 20px 0px 10px 0px;
   font-family: 'Cardinal', Arial, sans-serif;
@@ -1860,7 +1841,6 @@ h1.admin-welcome {
 }
 
 .orders-welcome {
-  border: 1px solid red;
   text-align: center;
   margin: 50px 0px 10px 0px;
   font-family: 'Cardinal', Arial, sans-serif;
@@ -1878,7 +1858,6 @@ h1.admin-welcome {
 }
 
 .category-title {
-  border: 1px solid red;
   text-align: center;
   margin: 50px 0px 10px 0px;
   font-family: 'Cardinal', Arial, sans-serif;
@@ -1887,12 +1866,12 @@ h1.admin-welcome {
 }
 
 .category-form {
+  padding: auto;
   margin: auto;
-  border: 1px solid red;
+  text-align: center;
 }
 
 .categories-list {
-  border: 1px solid red;
   margin-top: 10px;
   text-align: center;
   font-family: 'Cardinal', Arial, sans-serif;
@@ -1900,20 +1879,20 @@ h1.admin-welcome {
   color: white;
 }
 
-.order {
-  border: 1px solid red;
+.order-global {
+  margin: 20px auto;
 }
 
 .order-name {
-  border: 1px solid red;
 }
 
 .order-status {
-  border: 1px solid red;
 }
 
 .order-status-dropdown {
-  border: 1px solid red;
+  width: 200px;
+  display: inline-block;
+  text-align: center;
 }
 
 .form-label {
@@ -1934,3 +1913,38 @@ h1.admin-welcome {
   font-size: 24px;
   color: white;
 }
+
+.order-id {
+  text-align: center;
+  margin: 50px 0px 10px 0px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 40px;
+  color: white;
+}
+
+.order-deets {
+  text-align: center;
+  margin: 10px 0px 10px 0px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 40px;
+  color: white;
+}
+
+.order-indivs {
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 20px;
+}
+
+.order-quantity {
+  margin-bottom: 25px;
+}
+
+.order-back-link {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 20px;
+}
+

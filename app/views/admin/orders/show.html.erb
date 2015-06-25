@@ -1,60 +1,60 @@
 <div class="row">
   <div class="large-12 large-centered columns">
-    <h1 class="centered-text">Order <%= @order.id %></h1>
+    <p class="centered-text order-id">Order <%= @order.id %></p>
   </div>
 </div>
 
 <div class="row">
   <div class="large-12 large-centered columns">
-    <h1 class="centered-text">Status: <%= @order.status %></h1>
+    <p class="centered-text order-deets">Status: <%= @order.status %></p>
   </div>
 </div>
 
 <div class="row">
   <div class="large-12 large-centered columns">
-    <h1 class="centered-text">Ordered at: <%= @order.created_at.strftime("%I:%M%p on %m/%d/%Y") %></h1>
-      <h4 class="centered-text">(<%= time_ago_in_words(@order.created_at) %> ago)</h4>
+    <p class="centered-text order-deets">Ordered at: <%= @order.created_at.strftime("%I:%M%p on %m/%d/%Y") %> (<%= time_ago_in_words(@order.created_at) %> ago)</p>
   </div>
 </div>
 
 <div class="row">
   <div class="large-12 large-centered columns">
-    <h1 class="centered-text">Status Updated At: <%= @order.updated_at.strftime("%I:%M%p on %m/%d/%Y") %></h1>
-      <h4 class="centered-text">(<%= time_ago_in_words(@order.updated_at) %> ago)</h4>
+    <h1 class="centered-text order-deets">Status Updated At: <%= @order.updated_at.strftime("%I:%M%p on %m/%d/%Y") %> (<%= time_ago_in_words(@order.updated_at) %> ago)</h1>
   </div>
 </div>
 
 <div class="row">
   <div class="large-12 large-centered columns">
-    <h1 class="centered-text">Purchaser Name: <%= @order.purchaser_name %></h1>
+    <h1 class="centered-text order-deets">Purchaser Name: <%= @order.purchaser_name %></h1>
   </div>
 </div>
 
 <div class="row">
   <div class="large-12 large-centered columns">
-    <h1 class="centered-text">Purchaser Email: <%= @order.purchaser_email %></h1>
+    <h1 class="centered-text order-deets">Purchaser Email: <%= @order.purchaser_email %></h1>
   </div>
 </div>
 
 <div class="row">
   <div class="large-12 large-centered columns">
-    <h1 class="centered-text">Menu Items:</h1>
-    <ul>
+    <div class="order-global'">
+    <p class="centered-text order-deets">Menu Items:</p>
       <% @order.uniq_items.each do |item| %>
-        <li class="large-12 centered-text columns"><%= link_to "#{item.title}", admin_item_path(item) %>: <%= @order.quantity(item) %> x <%= number_to_currency(item.price, unit: "$") %>, Subtotal = <%= number_to_currency((@order.quantity(item) * item.price), unit: "$") %></li>
+        <p class="large-12 centered-text columns order-indivs"><%= link_to "#{item.title}", admin_item_path(item) %>
+        <p class="large-12 centered-text columns order-indivs"> <%= @order.quantity(item) %> x <%= number_to_currency(item.price, unit: "$") %>
+        <p class="large-12 centered-text columns order-indivs order-quantity"> Subtotal = <%= number_to_currency((@order.quantity(item) * item.price), unit: "$") %></p>
       <% end %>
-    </ul>
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="large-12 large-centered columns">
-    <h1 class="centered-text">Order Total: <%= number_to_currency(@order.total) %></h1>
+    <p class="centered-text order-deets">Order Total: <%= number_to_currency(@order.total) %></p>
   </div>
 </div>
 
 <div class="row">
   <div class="large-12 large-centered columns">
-    <%= link_to "<< Back to Orders Page", admin_orders_path, class: "large-12 centered-text columns" %>
+    <%= link_to "<< Back to Orders Page", admin_orders_path, class: "large-12 centered-text columns order-back-link" %>
   </div>
 </div>
