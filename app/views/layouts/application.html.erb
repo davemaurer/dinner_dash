@@ -16,6 +16,38 @@
 
 <body>
 
+<nav class="top-bar" data-topbar role="navigation">
+  <section class="top-bar-section">
+    <div class="right">
+      <ul>
+        <% if current_admin? %>
+          <li class="home nav-item"><%= link_to "Home", admin_path %></li>
+          <li class="orders nav-item"><%= link_to "Orders", admin_orders_path %></li>
+          <li class="menu nav-item"><%= link_to "Menu", admin_items_path %></li>
+          <li class="categories nav-item"><%= link_to "Categories", admin_categories_path %></li>
+        <% else %>
+          <% if current_user %>
+            <li class="past orders nav-item"><%= link_to "Past Orders", orders_path %></li>
+            <li class="backpack-count nav-item"><%= link_to "(#{@cart.count_all})", cart_path %></li>
+          <% else %>
+            <li class="backpack-count nav-item"><%= link_to "Your Cart (#{@cart.count_all})", cart_path %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="left">
+      <ul>
+      <% if current_user %>
+        <li class="nav-item"><%= link_to "Logout", logout_path, method: :delete %></li>
+      <% else %>
+        <li class="nav-item"><%= link_to "Login", login_path %></li>
+      <% end %>
+      <li class="nav-item"><%= link_to "Feast", items_path %></li>
+      </ul>
+    </div>
+  </section>
+</nav>
+
 <div class="container">
   <div class="large-12 columns centered-text">
     <h1 class="title">Mythical Eatures</h1>
@@ -24,33 +56,6 @@
 
 </div>
 
-<nav class="top-bar" data-topbar role="navigation">
-  <section class="top-bar-section">
-    <ul>
-      <% if current_admin? %>
-        <li class="home"><%= link_to "Home", admin_path %></li>
-        <li class="orders"><%= link_to "Orders", admin_orders_path %></li>
-        <li class="menu"><%= link_to "Menu", admin_items_path %></li>
-        <li class="categories"><%= link_to "Categories", admin_categories_path %></li>
-      <% else %>
-        <% if current_user %>
-          <li class="past orders"><%= link_to "Past Orders", orders_path %></li>
-          <li class="backpack-icon"><%= link_to image_tag("backpack_icon.png", width: 25), cart_path, class: "active" %></li>
-          <li class="backpack-count"><%= link_to "(#{@cart.count_all})", cart_path %></li>
-        <% else %>
-          <li class="backpack-icon"><%= link_to image_tag("backpack_icon.png", width: 25), cart_path, class: "active" %></li>
-          <li class="backpack-count"><%= link_to "(#{@cart.count_all})", cart_path %></li>
-        <% end %>
-    <% end %>
-      <% if current_user %>
-        <li><%= link_to "Logout", logout_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to "Login", login_path %></li>
-      <% end %>
-      <li><%= link_to "Feast", items_path %></li>
-    </ul>
-  </section>
-</nav>
 
     <%= flash.notice %>
     <%= yield %>
