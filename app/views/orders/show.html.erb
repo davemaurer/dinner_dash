@@ -8,7 +8,7 @@
 
     <div class="order-details">
       <div class="order-total-price">
-        Order Total: $<%= @order.total_price %>
+        Order Total: <%= number_to_currency(@order.total_price, unit: "$") %>
       </div>
       <div class="order-status">
         Order Status: <%= @order.status %>
@@ -26,7 +26,7 @@
     <div class="order-title">
       <h1>Thine Items Ordered:</h1>
     </div>
-    
+
     <div class="items-from-order">
       <% @order.items.uniq.each do |item| %>
         <div class="order-item">
