@@ -1500,7 +1500,7 @@ $include-html-global-classes: $include-html-classes;
 }
 
 body {
-  background: #202020;
+  background: #333333;
   color: #FFFFFF;
 }
 
@@ -1604,13 +1604,13 @@ table li .account_details {
 
 // start non-admin items menu
 .items table {
-  background-color: #303030;
+  background-color: #202020;
   margin-top: 50px;
   border: 1px solid #303030;
 }
 
 .items td {
-  background-color: #303030;
+  background-color: #202020;
   color: white;
   font-family: 'Cardinal', Arial, sans-serif;
   text-align: center;
