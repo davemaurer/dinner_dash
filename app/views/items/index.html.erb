@@ -41,7 +41,9 @@
 
       <tr class="add-to-cart">
         <% slice.each do |item| %>
-          <td><%= link_to "Add To Cart", cart_path(item_id: item.id) unless item.id.nil? %></td>
+          <% unless item.id.nil? %>
+            <td><%= link_to("Add To Cart", cart_path(item_id: item), method: :post) %></td>
+          <% end %>
         <% end %>
       </tr>
     </table>
