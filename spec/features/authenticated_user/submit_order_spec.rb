@@ -52,7 +52,7 @@ feature "an authenticated user" do
     click_button "Login"
     click_button "Checkout"
 
-    expect(page).to have_content("Thine Order:")
+    expect(page).to have_content("Thy Order:")
     expect(page).to have_content("John Doe")
     expect(page).to have_link("Unicorn Pie")
     expect(page).to have_content("Order Total: $8.0")

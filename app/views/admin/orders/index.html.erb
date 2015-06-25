@@ -39,26 +39,29 @@
 <% @orders.each do |order| %>
   <div class="row">
     <div class="large-12 columns centered-text">
-      <div class="order-name">
-          <%= link_to "Order: #{order.id}", admin_order_path(order) %>
-      </div>
-      <div class="order-status">
-        <%= order.status %>
-      </div>
-      <div class="order-status-dropdown">
-        <%= form_for([:admin, order]) do |f| %>
-          <%= f.label "Update Order Status" %>
+      <div class="order-global">
+        <div class="order-name">
+          <%= link_to "Order: #{order.id}", admin_order_path(order), class: "order-item-title" %>
+        </div>
+        <div class="order-status">
+          <%= order.status %>
+        </div><br>
+        <div class="order-status-dropdown">
           <% if order.status == "ordered" || order.status == "paid" %>
-            <% if order.status == "ordered" %>
-              <%= f.select(:status, options_for_select([[" ", " "], ["paid", "paid"], ["cancelled", "cancelled"]])) %>
-            <% else %>
-              <%= f.select(:status, options_for_select([[" ", " "], ["completed", "completed"], ["cancelled", "cancelled"]])) %>
+            <%= form_for([:admin, order]) do |f| %>
+              <%= f.label "Update Order Status", class: "form-label" %>
+              <% if order.status == "ordered" %>
+                <%= f.select(:status, options_for_select([[" ", " "], ["paid", "paid"], ["cancelled", "cancelled"]])) %>
+              <% else %>
+                <%= f.select(:status, options_for_select([[" ", " "], ["completed", "completed"], ["cancelled", "cancelled"]])) %>
+              <% end %>
+              <%= f.submit "Update", method: :put, class: "button round small"  %>
             <% end %>
           <% end %>
-          <%= f.submit "Update", method: :put, class: "button round small"  %>
-        <% end %>
+        </div>
       </div>
     </div>
+  </div>
   </div>
 <% end %>
 </div>
