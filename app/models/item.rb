@@ -31,10 +31,6 @@ class Item < ActiveRecord::Base
     end
   end
 
-  def quantity
-    order_items.where(item_id: self.id).count
-  end
-
   def self.new_plus_categories(params)
     if params[:categories]
       params[:categories].delete("0")

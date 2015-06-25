@@ -41,7 +41,7 @@
     <h1 class="centered-text">Menu Items:</h1>
     <ul>
       <% @order.items.each do |item| %>
-        <li class="large-12 centered-text columns"><%= link_to "#{item.title}", admin_item_path(item) %>: <%= item.quantity %> x <%= number_to_currency(item.price, unit: "$") %>, Subtotal = <%= number_to_currency((item.quantity * item.price), unit: "$") %></li>
+        <li class="large-12 centered-text columns"><%= link_to "#{item.title}", admin_item_path(item) %>: <%= @order.quantity(item) %> x <%= number_to_currency(item.price, unit: "$") %>, Subtotal = <%= number_to_currency((@order.quantity(item) * item.price), unit: "$") %></li>
       <% end %>
     </ul>
   </div>
