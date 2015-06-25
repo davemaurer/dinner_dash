@@ -12,28 +12,38 @@
   </div>
 </div>
 
-<% @items.each_slice(4) do |slice| %>
-  <div class="row items">
-    <div class="large-12 columns centered-text">
-      <% slice.each do |item| %>
-        <div class="large-3 columns">
-          <div class="item-title">
-            <%= link_to item.title, item_path(item) %>
-          </div>
-          <div class="item-price">
-            <%= number_to_currency(item.price, unit: "$") %>
-          </div>
-          <div class="item-image">
-            <%= image_tag item.image.url %>
-          </div>
-          <div class="item-description">
-            <%= item.description %>
-          </div>
-          <div class="add-to-cart">
-            <%= button_to "Add To Cart", cart_path(item_id: item.id), class: "round button tiny" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+<div class="centered-text items">
+  <% @items.each_slice(4) do |slice| %>
+    <table>
+      <tr class="item-title">
+        <% slice.each do |item| %>
+          <td><%= link_to item.title, item_path(item) %></td>
+        <% end %>
+      </tr>
+
+      <tr class="item-price">
+        <% slice.each do |item| %>
+            <td><%= number_to_currency(item.price, unit: "$") %></td>
+        <% end %>
+      </tr>
+
+      <tr class="item-image">
+        <% slice.each do |item| %>
+            <td><%= image_tag item.image.url %></td>
+        <% end %>
+      </tr>
+
+      <tr class="item-description">
+        <% slice.each do |item| %>
+            <td><p><%= item.description %><p></td>
+        <% end %>
+      </tr>
+
+      <tr class="add-to-cart">
+        <% slice.each do |item| %>
+            <td><%= link_to "Add To Cart", cart_path(item_id: item.id), class: "" %></td>
+        <% end %>
+      </tr>
+    </table>
   <% end %>
 </div>
