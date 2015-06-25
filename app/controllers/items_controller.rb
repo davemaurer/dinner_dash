@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
     if params[:category_id].nil?
-      @items = Item.active_items 
+      @items = Item.active_items
       @dropdown = "Onward!"
     else
       category = Category.find(params[:category_id])
