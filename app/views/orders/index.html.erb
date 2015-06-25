@@ -1,16 +1,15 @@
 <div class="row">
   <div class="large-12 columns centered-text">
     <br>
-    <h1 class="orders">Thine Past Orders</h1>
-
+    <h1 class="orders">Thy Past Orders</h1>
     <table class="orders">
       <tr>
-        <th>Date Ordered</th><th>Total Price</th><th>Status</th>
+        <th>Ordered at</th><th>Total Price</th><th>Status</th>
       </tr>
       <% @orders.each do |order| %>
         <tr>
           <td>
-            <%= link_to order.created_at.to_s, order_path(order) %>
+            <%= link_to order.created_at.strftime("%I:%M%p on %m/%d/%Y"), order_path(order) %>
           </td>
           <td>
             <%= number_to_currency(order.total_price, unit: "$") %>

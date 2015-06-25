@@ -4,26 +4,28 @@
 
 <div class="row">
   <div class="large-12 large-centered columns">
-    <p class="centered-text">All Categories</p>
+    <p class="centered-text category-title">All Categories</p>
   </div>
 </div>
 
 <div class="row">
   <div class="large-4 columns centered-text">
-    <%= form_for([:admin, @category]) do |f| %>
-      <%= f.label "name" %>
-      <%= f.text_field "name", :class => ""  %>
-      <%= f.submit "Create Category", :class => "button round tiny" %>
-    <% end %>
+    <div class="category-form">
+      <%= form_for([:admin, @category]) do |f| %>
+        <%= f.label "name" %>
+        <%= f.text_field "name", :class => ""  %>
+        <%= f.submit "Create Category", :class => "button round tiny" %>
+      <% end %>
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="large-12 centered columns">
-    <ul class="categories">
+    <div class="categories-list">
       <% @categories.each do |category| %>
-        <li><%= category.name %></li>
+        <%= category.name %><br>
       <% end %>
-    </ul>
+    </div>
   </div>
 </div>

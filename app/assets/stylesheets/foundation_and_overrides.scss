@@ -1489,23 +1489,19 @@ $include-html-global-classes: $include-html-classes;
 
 @font-face {
   font-family: 'SketchGothic';
-  src: url('fonts/sketch_gothic_school.ttf');
+  src: font-url('fonts/sketch_gothic_school.ttf');
   src: local('SketchGothic'), local('Gothic'), url('fonts/sketch_gothic_school.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Cardinal';
-  src: url('fonts/Cardinal.ttf');
+  src: font-url('fonts/Cardinal.ttf');
   src: local('Cardinal'), local('Cardinal'), url('fonts/Cardinal.ttf') format('truetype');
 }
 
 body {
   background: #5c5c5c;
   color: #FFFFFF;
-}
-
-body li{
-  background: #7D2E00;
 }
 
 .centered-text{
@@ -1538,12 +1534,12 @@ table li .account_details {
 
 .container{
   height: 200px;
-  background-color: #5c5c5c;
+  background-color: #333333;
 }
 
 .container .title{
   color: #FFFFFF;
-  margin-top: 30px;
+  padding-bottom: 50px;
   font-size: 96px;
   font-family: 'SketchGothic', Arial, sans-serif;
 }
@@ -1558,25 +1554,30 @@ table li .account_details {
   display: inline-block;
 }
 
-
 .top-bar {
-//  border: 5px solid red;
+  background-color: #333333;
+  text-align: center;
 }
 
-.top-bar a {
-  margin: 0px 20px;
+.top-bar-section ul {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  background: #333333;
 }
 
-.top-bar ul li {
-  background-color: #5c5c5c;
+.nav-item {
+  display: inline-block;
+  margin: auto 10px;
+  text-align: center;
 }
 
 .right {
-  background-color: #2a2a2a;
+  background-color: #333333;
 }
 
 .left {
-  background-color: #2a2a2a;
+  background-color: #333333;
 }
 
 .padder {
@@ -1587,7 +1588,7 @@ table li .account_details {
 }
 
 .ta{
-  background-color: #70857E;
+  background-color: #5c5c5c;
 }
 
 .filter {
@@ -1595,7 +1596,6 @@ table li .account_details {
   color: #FFFFFF;
   font-family: 'SketchGothic', Arial, sans-serif;
   font-size: 72px;
-//  border: 5px solid red;
 }
 
 .dropdown {
@@ -1717,7 +1717,7 @@ table li .account_details {
   border: 1px solid red;
   text-align: center;
   margin-top: 50px;
-  font-family: 'SketchGothic', Arial, sans-serif;
+  font-family: 'Cardinal', Arial, sans-serif;
   font-size: 58px;
   color: white;
 }
@@ -1738,7 +1738,7 @@ h1.orders {
   border: 1px solid red;
   text-align: center;
   margin-top: 50px;
-  font-family: 'SketchGothic', Arial, sans-serif;
+  font-family: 'Cardinal', Arial, sans-serif;
   font-size: 58px;
   color: white;
 }
@@ -1752,7 +1752,7 @@ table.orders{
   border: 1px solid red;
   text-align: center;
   margin-top: 50px;
-  font-family: 'SketchGothic', Arial, sans-serif;
+  font-family: 'Cardinal', Arial, sans-serif;
   font-size: 58px;
   color: white;
 }
@@ -1824,4 +1824,102 @@ table.orders{
   font-family: 'Cardinal', Arial, sans-serif;
   font-size: 24px;
   margin-top: 10px;
+}
+
+h1.admin-welcome {
+  border: 1px solid red;
+  text-align: center;
+  margin: 50px 0px 10px 0px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 56px;
+  color: white;
+}
+
+.admin-welcome {
+  border: 1px solid red;
+  text-align: center;
+  margin: 20px 0px 10px 0px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 40px;
+  color: white;
+}
+
+.label[for="full_name"] {
+  color: white;
+}
+
+.orders-welcome {
+  border: 1px solid red;
+  text-align: center;
+  margin: 50px 0px 10px 0px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 40px;
+  color: white;
+}
+
+.order-status {
+  display: inline-block;
+  margin: auto 20px;
+}
+
+.order {
+  display: inline-block;
+}
+
+.category-title {
+  border: 1px solid red;
+  text-align: center;
+  margin: 50px 0px 10px 0px;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 40px;
+  color: white;
+}
+
+.category-form {
+  margin: auto;
+  border: 1px solid red;
+}
+
+.categories-list {
+  border: 1px solid red;
+  margin-top: 10px;
+  text-align: center;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+.order {
+  border: 1px solid red;
+}
+
+.order-name {
+  border: 1px solid red;
+}
+
+.order-status {
+  border: 1px solid red;
+}
+
+.order-status-dropdown {
+  border: 1px solid red;
+}
+
+.form-label {
+  margin-top: 10px;
+  text-align: center;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+.image-submit {
+  text-align: center;
+}
+
+.flash-notice {
+  text-align: center;
+  font-family: 'Cardinal', Arial, sans-serif;
+  font-size: 24px;
+  color: white;
 }
