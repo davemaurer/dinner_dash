@@ -1504,8 +1504,14 @@ body {
   color: #FFFFFF;
 }
 
+a {
+  font-family: 'Cardinal', Arial, sans-serif;
+  color: white;
+}
+
 .centered-text{
   text-align:center;
+  color: white;
 }
 
 .quantity{
@@ -1605,8 +1611,9 @@ table li .account_details {
 // start non-admin items menu
 .items table {
   background-color: #202020;
-  margin-top: 50px;
-  border: 1px solid #303030;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border: 5px solid #202020;
 }
 
 .items td {
@@ -1615,16 +1622,11 @@ table li .account_details {
   font-family: 'Cardinal', Arial, sans-serif;
   text-align: center;
   width: 275px;
-  // border-left: 1px solid #202020;
 }
 
 .item-title td {
   font-size: 30px;
   height: 50px;
-}
-
-.item-title a {
-  color: white;
 }
 
 .item-price td{
@@ -1633,19 +1635,36 @@ table li .account_details {
 }
 
 .item-description p{
-  height: 65px;
+  height: 60px;
   font-size: 23px;
 }
 
-.add-to-cart td{
-  border: 5px outset gray;
-}
-
 .add-to-cart a{
-  font-family: 'Cardinal', Arial, sans-serif;
-  color: white;
+  padding: 10px;
+  border: 5px outset gray;
+  font-size: 15px;
 }
 // end non-admin items menu
+
+// start admin items menu
+.admin-menu {
+  margin-bottom: 30px;
+  font-family: 'SketchGothic', Arial, sans-serif;
+  font-size: 72px;
+}
+
+.item-status td {
+  font-size: 20px;
+}
+
+.add-new-item a {
+  padding: 10px;
+  border: 5px outset gray;
+  background-color: #202020;
+  font-size: 20px;
+}
+// end admin items menu
+
 .item-show-image {
   border: 1px solid red;
   text-align: center;
